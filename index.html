@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rana Arif - Professional Portfolio</title>
+
+  <!-- Preload hero image for faster paint -->
+  <link rel="preload" as="image" href="rana.jpg">
+
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <!-- exact filename must be rana.jpg (all lowercase) -->
+        <img src="rana.jpg" alt="Rana Arif" class="brand-pic">
+        <span>Rana Arif</span>
+      </div>
+      <input type="checkbox" id="nav-toggle">
+      <label for="nav-toggle" class="hamburger"><i class="fa fa-bars"></i></label>
+      <ul class="links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#strengths">Goals</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="cta">
+        <a class="btn ghost" id="gmailBtn" title="Open Gmail compose">
+          <i class="fa-regular fa-envelope"></i> Gmail
+        </a>
+        <a class="btn primary" id="callBtn" title="Call now">
+          <i class="fa-solid fa-phone"></i> Call
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+
+    <div class="container hero-inner">
+      <!-- CORRECTED: use lowercase rana.jpg -->
+      <img src="rana.jpg" alt="Profile picture of Rana Arif" class="profile-pic" loading="eager" decoding="async">
+      <h1 class="title">Rana Arif</h1>
+      <p class="subtitle">
+        <span id="typing"></span><span class="cursor">|</span>
+      </p>
+
+      <div class="contact-info">
+        <a href="mailto:ranaarifnoon66@gmail.com" class="chip"><i class="fas fa-envelope"></i> Email</a>
+        <a href="tel:+923060830941" class="chip"><i class="fas fa-phone"></i> +92 306 0830941</a>
+        <a href="#" class="chip"><i class="fas fa-map-marker-alt"></i> Multan, Pakistan</a>
+        <a href="https://github.com/ranaarifdev" target="_blank" class="chip"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://www.linkedin.com" target="_blank" class="chip"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      </div>
+
+      <a href="#projects" class="btn scroll-btn">See Projects <i class="fa-solid fa-angles-down"></i></a>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="section reveal">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>
+        Dedicated and motivated BS Cyber Security student with hands-on experience in Android development,
+        website creation, and IT troubleshooting. I aim to apply my technical skills, problem-solving abilities,
+        and strong work ethic to contribute to organizational success while enhancing my expertise in
+        cybersecurity and software development.
+      </p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section alt reveal">
+    <div class="container">
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <span>Kotlin & Jetpack Compose (Beginner)</span>
+        <span>HTML, CSS, JavaScript</span>
+        <span>Python (Basic)</span>
+        <span>Computer Networking</span>
+        <span>PHP & MySQL (Beginner)</span>
+        <span>Android Studio & GitHub</span>
+        <span>Cybersecurity Basics</span>
+        <span>MS Office</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section reveal">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="cards">
+        <article class="card">
+          <div class="card-badge"><i class="fa-solid fa-database"></i></div>
+          <h3>Cyber Database App</h3>
+          <p>Retrieves student data from multiple Excel sheets for easy access.</p>
+        </article>
+        <article class="card">
+          <div class="card-badge"><i class="fa-solid fa-file-pdf"></i></div>
+          <h3>PDF Scanner App</h3>
+          <p>Scans documents and saves them as PDF using CameraX and iTextPDF.</p>
+        </article>
+        <article class="card">
+          <div class="card-badge"><i class="fa-solid fa-robot"></i></div>
+          <h3>Chatbot App</h3>
+          <p>AI-powered chatbot using Google API for automated Q&A.</p>
+        </article>
+        <article class="card">
+          <div class="card-badge"><i class="fa-solid fa-people-group"></i></div>
+          <h3>United Comrades</h3>
+          <p>A website to save and share memories with friends.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="section alt reveal">
+    <div class="container">
+      <h2>Education</h2>
+      <ul class="timeline">
+        <li>
+          <div class="dot"></div>
+          <div class="content">
+            <strong>BS Cyber Security</strong> – Emerson University Multan (2023–2027) | CGPA: 3.54
+          </div>
+        </li>
+        <li>
+          <div class="dot"></div>
+          <div class="content">
+            <strong>FSc Pre-Medical</strong> – BISE Multan (2023) | 55.55%
+          </div>
+        </li>
+        <li>
+          <div class="dot"></div>
+          <div class="content">
+            <strong>Matric (Science)</strong> – BISE Multan (2021) | 74.55%
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- STRENGTHS & GOALS -->
+  <section id="strengths" class="section reveal">
+    <div class="container">
+      <h2>Strengths</h2>
+      <ul class="grid-list">
+        <li>Quick learner & adaptive</li>
+        <li>Strong problem-solving skills</li>
+        <li>Team player & independent worker</li>
+        <li>Focused on real-world solutions</li>
+      </ul>
+      <h2>Career Goals</h2>
+      <ul class="grid-list">
+        <li>Achieve CEH Certification</li>
+        <li>Participate in Bug Bounty Programs</li>
+        <li>Build a strong GitHub portfolio</li>
+        <li>Start an online IT business</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- LANGUAGES -->
+  <section id="languages" class="section alt reveal">
+    <div class="container">
+      <h2>Languages</h2>
+      <p>Urdu (Native), Punjabi (Fluent), English (Intermediate)</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section reveal">
+    <div class="container">
+      <h2>Contact Me</h2>
+
+      <form id="contactForm" class="contact-form">
+        <div class="field">
+          <label for="name">Your Name</label>
+          <input id="name" name="name" type="text" placeholder="e.g.,Rana Arif" required/>
+        </div>
+        <div class="field">
+          <label for="email">Your Email</label>
+          <input id="email" name="email" type="email" placeholder="e.g., arif@example.com" required/>
+        </div>
+        <div class="field">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" placeholder="Write your message..." rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn primary wide">
+          <i class="fa-regular fa-paper-plane"></i> Send Message
+        </button>
+        <p class="form-hint">No backend required — powered by EmailJS.</p>
+      </form>
+
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 Rana Arif | All Rights Reserved</p>
+  </footer>
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <!-- Main JS -->
+  <script src="script.js"></script>
+</body>
+</html>
