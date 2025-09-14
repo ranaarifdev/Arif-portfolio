@@ -1,5 +1,5 @@
 /* =========================
-   script.js — Improved
+   script.js — Improved & Fixed
    ========================= */
 
 /* ---------- Buttons (Call & Gmail) ---------- */
@@ -8,14 +8,12 @@ const gmailBtn = document.getElementById('gmailBtn');
 
 if (callBtn) {
   callBtn.addEventListener('click', () => {
-    // Opens phone dialer on mobile/desktop apps that support tel:
     window.location.href = 'tel:+923060830941';
   });
 }
 
 if (gmailBtn) {
   gmailBtn.addEventListener('click', () => {
-    // Opens Gmail compose in a new tab with your email in "to"
     const to = 'ranaarifnoon66@gmail.com';
     const subject = encodeURIComponent('Hello Rana');
     const body = encodeURIComponent('Hi Rana,\n\n');
@@ -36,18 +34,22 @@ let ti = 0, ci = 0, deleting = false;
 function typeLoop() {
   if (!typingEl) return;
   const current = titles[ti % titles.length];
+
   if (!deleting) {
     typingEl.textContent = current.slice(0, ci + 1);
     ci++;
-    if (ci === current.length + 3) {
-      // small pause before deleting
-      setTimeout(() => deleting = true, 700);
+    if (ci === current.length) {
+      // pause before deleting
+      setTimeout(() => { deleting = true; typeLoop(); }, 1000);
       return;
     }
   } else {
     typingEl.textContent = current.slice(0, ci - 1);
     ci--;
-    if (ci === 0) { deleting = false; ti++; }
+    if (ci === 0) {
+      deleting = false;
+      ti++;
+    }
   }
   setTimeout(typeLoop, deleting ? 60 : 120);
 }
@@ -65,22 +67,10 @@ const observer = new IntersectionObserver((entries)=>{
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
 /* ---------- EmailJS Contact Form ---------- */
-/*
-  1) Sign up at https://www.emailjs.com/
-  2) Add an Email Service (e.g., Gmail) and create a Template with variables:
-     - from_name
-     - from_email
-     - message
-  3) Get these values from the EmailJS dashboard and replace below:
-     - PUBLIC_KEY  -> REPLACE_EMAILJS_PUBLIC_KEY
-     - SERVICE_ID  -> REPLACE_EMAILJS_SERVICE_ID
-     - TEMPLATE_ID -> REPLACE_EMAILJS_TEMPLATE_ID
-*/
 const PUBLIC_KEY  = 'REPLACE_EMAILJS_PUBLIC_KEY';
 const SERVICE_ID  = 'REPLACE_EMAILJS_SERVICE_ID';
 const TEMPLATE_ID = 'REPLACE_EMAILJS_TEMPLATE_ID';
 
-// Safe init: only initialize if emailjs loaded
 if (window.emailjs && typeof window.emailjs.init === 'function') {
   try { emailjs.init(PUBLIC_KEY); } catch (e) { console.warn('EmailJS init failed', e); }
 } else {
@@ -93,8 +83,9 @@ const toast = document.getElementById('toast');
 function showToast(msg, type='success'){
   if (!toast) { alert(msg); return; }
   toast.textContent = msg;
-  toast.className = `toast show ${type}`;
-  setTimeout(()=> toast.className = 'toast', 3500);
+  toast.classList.remove('success','error','show');
+  toast.classList.add('show', type);
+  setTimeout(()=> toast.classList.remove('show', 'success', 'error'), 3500);
 }
 
 function setFormLoading(isLoading){
@@ -102,7 +93,9 @@ function setFormLoading(isLoading){
   if (!submitBtn) return;
   submitBtn.disabled = isLoading;
   submitBtn.style.opacity = isLoading ? '0.7' : '1';
-  submitBtn.innerHTML = isLoading ? '<i class="fa fa-spinner fa-spin"></i> Sending...' : '<i class="fa-regular fa-paper-plane"></i> Send Message';
+  submitBtn.innerHTML = isLoading 
+    ? '<i class="fa fa-spinner fa-spin"></i> Sending...' 
+    : '<i class="fa-regular fa-paper-plane"></i> Send Message';
 }
 
 if (form) {
@@ -115,7 +108,6 @@ if (form) {
       message: formData.get('message')?.toString().trim()
     };
 
-    // Basic validation
     if (!data.from_name || !data.from_email || !data.message) {
       showToast('⚠️ Please fill in all fields.', 'error');
       return;
@@ -123,7 +115,6 @@ if (form) {
 
     setFormLoading(true);
 
-    // Try EmailJS if configured
     if (PUBLIC_KEY !== 'REPLACE_EMAILJS_PUBLIC_KEY' && SERVICE_ID !== 'REPLACE_EMAILJS_SERVICE_ID' && TEMPLATE_ID !== 'REPLACE_EMAILJS_TEMPLATE_ID' && window.emailjs && typeof window.emailjs.send === 'function') {
       try {
         await emailjs.send(SERVICE_ID, TEMPLATE_ID, data);
@@ -131,7 +122,6 @@ if (form) {
         showToast('✅ Message sent! I will reply soon.', 'success');
       } catch (err) {
         console.error('EmailJS send error:', err);
-        // fallback to mailto
         const to = 'ranaarifnoon66@gmail.com';
         const subject = encodeURIComponent(`Portfolio Message from ${data.from_name}`);
         const body = encodeURIComponent(`${data.message}\n\nReply to: ${data.from_email}`);
@@ -143,7 +133,6 @@ if (form) {
       return;
     }
 
-    // If EmailJS not configured or not loaded, use mailto fallback
     const to = 'ranaarifnoon66@gmail.com';
     const subject = encodeURIComponent(`Portfolio Message from ${data.from_name}`);
     const body = encodeURIComponent(`${data.message}\n\nReply to: ${data.from_email}`);
