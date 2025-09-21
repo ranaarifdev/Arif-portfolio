@@ -123,35 +123,68 @@ h2{font-size:28px; margin:0 0 18px}
 }
 .card-badge{font-size:22px; opacity:.9; margin-bottom:8px}
 
-/* Certification Images */
-.card img{
-  width:100%; 
-  height:auto;
-  margin-top:10px;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,.1);
-  object-fit:cover;
-}
-.timeline .content {
-  font-size: 1rem;
-  line-height: 1.6;
+/* =========================
+   Certifications Section
+========================= */
+
+#certifications {
+  background: #f9fafb; /* light background to separate */
+  padding: 4rem 0;
 }
 
-.timeline .year {
-  color: #888;
-  font-weight: bold;
-  margin-left: 5px;
+#certifications h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1c2c45; /* navy */
 }
 
-.timeline .content strong {
-  color: #222;
+#certifications .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 
-.timeline .content em {
-  color: #0066cc;
-  font-style: normal;
-  font-weight: bold;
+#certifications .card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+#certifications .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+#certifications .card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #2b6cb0; /* accent */
+}
+
+#certifications .card p {
+  font-size: 0.95rem;
+  color: #6b7280; /* muted */
+  margin-bottom: 1rem;
+}
+
+#certifications .card img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  transition: transform 0.2s ease;
+}
+
+#certifications .card img:hover {
+  transform: scale(1.03);
+}
+
 
 /* Timeline */
 .timeline{list-style:none; padding:0; margin:0; border-left:2px dashed rgba(255,255,255,.18)}
@@ -190,4 +223,5 @@ input:focus, textarea:focus{border-color: rgba(124,92,255,.6); box-shadow: 0 0 0
 
 /* Footer */
 .footer{padding:40px 20px; text-align:center; color:var(--muted)}
+
 
