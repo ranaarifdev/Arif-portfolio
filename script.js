@@ -17,7 +17,10 @@ if (gmailBtn) {
     const to = 'ranaarifnoon66@gmail.com';
     const subject = encodeURIComponent('Hello Rana');
     const body = encodeURIComponent('Hi Rana,\n\n');
-    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${to}&su=${subject}&body=${body}`, '_blank');
+    window.open(
+      `https://mail.google.com/mail/?view=cm&fs=1&to=${to}&su=${subject}&body=${body}`,
+      '_blank'
+    );
   });
 }
 
@@ -39,7 +42,6 @@ function typeLoop() {
     typingEl.textContent = current.slice(0, ci + 1);
     ci++;
     if (ci === current.length) {
-      // pause before deleting
       setTimeout(() => { deleting = true; typeLoop(); }, 1000);
       return;
     }
@@ -56,15 +58,16 @@ function typeLoop() {
 typeLoop();
 
 /* ---------- Reveal on Scroll ---------- */
-const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
       entry.target.classList.add('revealed');
       observer.unobserve(entry.target);
     }
   });
-},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+}, { threshold: .12 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 /* ---------- EmailJS Contact Form ---------- */
 const PUBLIC_KEY  = 'REPLACE_EMAILJS_PUBLIC_KEY';
@@ -72,7 +75,8 @@ const SERVICE_ID  = 'REPLACE_EMAILJS_SERVICE_ID';
 const TEMPLATE_ID = 'REPLACE_EMAILJS_TEMPLATE_ID';
 
 if (window.emailjs && typeof window.emailjs.init === 'function') {
-  try { emailjs.init(PUBLIC_KEY); } catch (e) { console.warn('EmailJS init failed', e); }
+  try { emailjs.init(PUBLIC_KEY); } 
+  catch (e) { console.warn('EmailJS init failed', e); }
 } else {
   console.warn('EmailJS SDK not loaded. Contact form will use mailto fallback.');
 }
@@ -80,26 +84,26 @@ if (window.emailjs && typeof window.emailjs.init === 'function') {
 const form = document.getElementById('contactForm');
 const toast = document.getElementById('toast');
 
-function showToast(msg, type='success'){
+function showToast(msg, type = 'success') {
   if (!toast) { alert(msg); return; }
   toast.textContent = msg;
-  toast.classList.remove('success','error','show');
+  toast.classList.remove('success', 'error', 'show');
   toast.classList.add('show', type);
-  setTimeout(()=> toast.classList.remove('show', 'success', 'error'), 3500);
+  setTimeout(() => toast.classList.remove('show', 'success', 'error'), 3500);
 }
 
-function setFormLoading(isLoading){
+function setFormLoading(isLoading) {
   const submitBtn = form?.querySelector('button[type="submit"]');
   if (!submitBtn) return;
   submitBtn.disabled = isLoading;
   submitBtn.style.opacity = isLoading ? '0.7' : '1';
-  submitBtn.innerHTML = isLoading 
-    ? '<i class="fa fa-spinner fa-spin"></i> Sending...' 
+  submitBtn.innerHTML = isLoading
+    ? '<i class="fa fa-spinner fa-spin"></i> Sending...'
     : '<i class="fa-regular fa-paper-plane"></i> Send Message';
 }
 
 if (form) {
-  form.addEventListener('submit', async (e)=>{
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const formData = new FormData(form);
     const data = {
@@ -115,7 +119,12 @@ if (form) {
 
     setFormLoading(true);
 
-    if (PUBLIC_KEY !== 'REPLACE_EMAILJS_PUBLIC_KEY' && SERVICE_ID !== 'REPLACE_EMAILJS_SERVICE_ID' && TEMPLATE_ID !== 'REPLACE_EMAILJS_TEMPLATE_ID' && window.emailjs && typeof window.emailjs.send === 'function') {
+    if (
+      PUBLIC_KEY !== 'REPLACE_EMAILJS_PUBLIC_KEY' &&
+      SERVICE_ID !== 'REPLACE_EMAILJS_SERVICE_ID' &&
+      TEMPLATE_ID !== 'REPLACE_EMAILJS_TEMPLATE_ID' &&
+      window.emailjs && typeof window.emailjs.send === 'function'
+    ) {
       try {
         await emailjs.send(SERVICE_ID, TEMPLATE_ID, data);
         form.reset();
@@ -143,3 +152,33 @@ if (form) {
 } else {
   console.warn('Contact form element (#contactForm) not found in DOM.');
 }
+
+// ---------- Certificate Preview ----------
+const certImages = document.querySelectorAll('#certifications .card img');
+const certModal = document.getElementById('certModal');
+const certModalImg = document.getElementById('certModalImg');
+const closeCert = document.getElementById('closeCert');
+
+certImages.forEach(img => {
+  img.addEventListener('click', (e) => {
+    e.preventDefault(); // ✅ Stop link from opening new tab
+    certModal.style.display = 'block';
+    certModalImg.src = img.src;
+  });
+});
+
+if (closeCert) {
+  closeCert.addEventListener('click', () => {
+    certModal.style.display = 'none';
+  });
+}
+
+// Close when clicking outside the image
+if (certModal) {
+  certModal.addEventListener('click', (e) => {
+    if (e.target === certModal) {
+      certModal.style.display = 'none';
+    }
+  });
+}
+
