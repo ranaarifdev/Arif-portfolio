@@ -3,20 +3,20 @@
    ========================= */
 
 /* Wait for DOM to be fully loaded */
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
   /* ---------- Buttons (Call & Gmail) ---------- */
   const callBtn = document.getElementById('callBtn');
   const gmailBtn = document.getElementById('gmailBtn');
 
   if (callBtn) {
-    callBtn.addEventListener('click', function() {
+    callBtn.addEventListener('click', function () {
       window.location.href = 'tel:+923060830941';
     });
   }
 
   if (gmailBtn) {
-    gmailBtn.addEventListener('click', function() {
+    gmailBtn.addEventListener('click', function () {
       const to = 'ranaarifnoon66@gmail.com';
       const subject = encodeURIComponent('Hello Rana');
       const body = encodeURIComponent('Hi Rana,\n\n');
@@ -31,8 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const titles = [
     'BS Cyber Security Student',
     'Android & Web Developer',
-    'IT Enthusiast',
-    'Problem Solver'
+    'Networking & Security Researcher',
+    'Ethical Hacker',
+    'Cybersecurity Researcher',
   ];
   const typingEl = document.getElementById('typing');
   let ti = 0, ci = 0, deleting = false;
@@ -46,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
       typingEl.textContent = current.slice(0, ci + 1);
       ci++;
       if (ci === current.length) {
-        typeTimeout = setTimeout(function() { deleting = true; typeLoop(); }, 1000);
+        typeTimeout = setTimeout(function () { deleting = true; typeLoop(); }, 1000);
         return;
       }
     } else {
@@ -62,8 +63,8 @@ document.addEventListener('DOMContentLoaded', function() {
   typeLoop();
 
   /* ---------- Reveal on Scroll ---------- */
-  const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
       if (entry.isIntersecting) {
         entry.target.classList.add('revealed');
         observer.unobserve(entry.target);
@@ -71,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }, { threshold: 0.12 });
 
-  document.querySelectorAll('.reveal').forEach(function(el) {
+  document.querySelectorAll('.reveal').forEach(function (el) {
     observer.observe(el);
   });
 
@@ -80,12 +81,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const navLinks = document.querySelector('.nav .links');
 
   if (navToggle && navLinks) {
-    navToggle.addEventListener('change', function(e) {
+    navToggle.addEventListener('change', function (e) {
       navLinks.style.display = e.target.checked ? 'flex' : '';
     });
 
-    navLinks.querySelectorAll('a').forEach(function(link) {
-      link.addEventListener('click', function() {
+    navLinks.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
         navToggle.checked = false;
         if (window.innerWidth <= 900) {
           navLinks.style.display = '';
@@ -95,8 +96,8 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   /* ---------- Smooth Scroll for Anchor Links ---------- */
-  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-    anchor.addEventListener('click', function(e) {
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
       if (targetId === '#') return;
 
@@ -114,8 +115,8 @@ document.addEventListener('DOMContentLoaded', function() {
   /* ---------- EmailJS Contact Form ---------- */
   // Leave these empty to use mailto fallback
   // To enable EmailJS, replace with your actual credentials from https://www.emailjs.com
-  const PUBLIC_KEY  = '';  // Replace with your EmailJS public key
-  const SERVICE_ID  = '';  // Replace with your EmailJS service ID
+  const PUBLIC_KEY = '';  // Replace with your EmailJS public key
+  const SERVICE_ID = '';  // Replace with your EmailJS service ID
   const TEMPLATE_ID = '';  // Replace with your EmailJS template ID
 
   // Only initialize EmailJS if SDK is loaded and keys are provided
@@ -140,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
     toast.textContent = msg;
     toast.classList.remove('success', 'error', 'show');
     toast.classList.add('show', type);
-    setTimeout(function() {
+    setTimeout(function () {
       toast.classList.remove('show', 'success', 'error');
     }, 3500);
   }
@@ -156,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   if (form) {
-    form.addEventListener('submit', async function(e) {
+    form.addEventListener('submit', async function (e) {
       e.preventDefault();
       const formData = new FormData(form);
       const data = {
@@ -173,11 +174,11 @@ document.addEventListener('DOMContentLoaded', function() {
       setFormLoading(true);
 
       // Check if EmailJS is configured and available
-      const hasEmailJS = window.emailjs && 
-                         typeof window.emailjs.send === 'function' &&
-                         PUBLIC_KEY && PUBLIC_KEY !== '' &&
-                         SERVICE_ID && SERVICE_ID !== '' &&
-                         TEMPLATE_ID && TEMPLATE_ID !== '';
+      const hasEmailJS = window.emailjs &&
+        typeof window.emailjs.send === 'function' &&
+        PUBLIC_KEY && PUBLIC_KEY !== '' &&
+        SERVICE_ID && SERVICE_ID !== '' &&
+        TEMPLATE_ID && TEMPLATE_ID !== '';
 
       if (hasEmailJS) {
         try {
@@ -213,8 +214,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const closeCert = document.getElementById('closeCert');
 
   if (certModal && certModalImg) {
-    certImages.forEach(function(img) {
-      img.addEventListener('click', function(e) {
+    certImages.forEach(function (img) {
+      img.addEventListener('click', function (e) {
         e.stopPropagation();
         e.preventDefault();
         certModal.style.display = 'block';
@@ -223,15 +224,62 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     if (closeCert) {
-      closeCert.addEventListener('click', function() {
+      closeCert.addEventListener('click', function () {
         certModal.style.display = 'none';
       });
     }
 
     // Close when clicking outside the image
-    certModal.addEventListener('click', function(e) {
+    certModal.addEventListener('click', function (e) {
       if (e.target === certModal) {
         certModal.style.display = 'none';
+      }
+    });
+  }
+
+  /* ---------- Project Details Modal ---------- */
+  const projectCards = document.querySelectorAll('.project-card.clickable');
+  const projectModal = document.getElementById('projectModal');
+  const closeProjectModal = document.getElementById('closeProjectModal');
+  const modalProjectTitle = document.getElementById('modalProjectTitle');
+  const modalProjectDesc = document.getElementById('modalProjectDesc');
+  const modalProjectSkills = document.getElementById('modalProjectSkills');
+
+  if (projectModal) {
+    projectCards.forEach(card => {
+      card.addEventListener('click', function() {
+        const title = this.getAttribute('data-title');
+        const desc = this.getAttribute('data-desc');
+        const skills = this.getAttribute('data-skills');
+
+        if (modalProjectTitle) modalProjectTitle.textContent = title;
+        if (modalProjectDesc) modalProjectDesc.textContent = desc;
+        
+        if (modalProjectSkills) {
+          modalProjectSkills.innerHTML = '';
+          if (skills) {
+            const skillArray = skills.split(',').map(s => s.trim());
+            skillArray.forEach(skill => {
+              const span = document.createElement('span');
+              span.className = 'skill-chip';
+              span.textContent = skill;
+              modalProjectSkills.appendChild(span);
+            });
+          }
+        }
+        projectModal.style.display = 'block';
+      });
+    });
+
+    if (closeProjectModal) {
+      closeProjectModal.addEventListener('click', function() {
+        projectModal.style.display = 'none';
+      });
+    }
+
+    projectModal.addEventListener('click', function(e) {
+      if (e.target === projectModal) {
+        projectModal.style.display = 'none';
       }
     });
   }

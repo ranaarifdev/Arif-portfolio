@@ -172,6 +172,21 @@ h2{font-size:28px; margin:0 0 18px}
   margin-top: 8px;
   margin-bottom: 0;
 }
+.clickable {
+  cursor: pointer;
+}
+.click-hint {
+  font-size: 0.75rem;
+  color: var(--brand-2);
+  opacity: 0;
+  margin-top: 12px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(10px);
+}
+.project-card:hover .click-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* Certifications Section */
 #certifications {
@@ -265,6 +280,53 @@ input:focus, textarea:focus{border-color: rgba(124,92,255,.6); box-shadow: 0 0 0
   font-weight: bold;
   cursor: pointer;
 }
+/* Project Modal Content */
+.project-modal-content {
+  margin: 10vh auto;
+  background: var(--card);
+  border: 1px solid rgba(124,92,255,.3);
+  padding: 40px;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  animation: zoomIn .25s ease;
+  position: relative;
+}
+.project-modal-content h2 {
+  color: var(--text);
+  margin-top: 0;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.project-modal-content p {
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+.skills-label {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.modal-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.skill-chip {
+  background: rgba(124,92,255,.1);
+  border: 1px solid rgba(124,92,255,.3);
+  color: var(--brand-2);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
 @keyframes fadeIn { from{opacity:0} to{opacity:1} }
 @keyframes zoomIn { from{transform:scale(.8); opacity:0} to{transform:scale(1); opacity:1} }
 

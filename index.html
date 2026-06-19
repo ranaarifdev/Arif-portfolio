@@ -141,19 +141,56 @@
     <div class="container">
       <h2><i class="fa-solid fa-shield-halved"></i> Projects</h2>
       <div class="cards project-grid">
-        <article class="card project-card"><h3 class="project-title">Attendance, Quiz & Assignment Status</h3></article>
-        <article class="card project-card"><h3 class="project-title">CGPA Calculator</h3></article>
-        <article class="card project-card"><h3 class="project-title">Roll Number Slip Generator</h3></article>
-        <article class="card project-card"><h3 class="project-title">Date Sheet System</h3></article>
-        <article class="card project-card"><h3 class="project-title">Honey Pot System</h3></article>
-        <article class="card project-card"><h3 class="project-title">MobSF Mobile Security Analysis</h3></article>
-        <article class="card project-card"><h3 class="project-title">Network Scanning Labs</h3></article>
-        <article class="card project-card"><h3 class="project-title">Penetration Testing Labs</h3></article>
-        <article class="card project-card"><h3 class="project-title">Cisco Packet Tracer Network Designs</h3></article>
-        <article class="card project-card active-project">
+        <article class="card project-card clickable" data-title="Attendance, Quiz & Assignment Status" data-desc="A comprehensive platform to track classroom attendance, quizzes, and assignment statuses efficiently." data-skills="Web Development, Database Management">
+          <h3 class="project-title">Attendance, Quiz & Assignment Status</h3>
+          <span class="click-hint"><i class="fa-solid fa-hand-pointer"></i> Click for details</span>
+        </article>
+        
+        <article class="card project-card clickable" data-title="CGPA Calculator" data-desc="A utility tool that calculates SGPA and CGPA semester-wise for students, ensuring accurate grading." data-skills="Logic Implementation, UI Design">
+          <h3 class="project-title">CGPA Calculator</h3>
+          <span class="click-hint"><i class="fa-solid fa-hand-pointer"></i> Click for details</span>
+        </article>
+        
+        <article class="card project-card clickable" data-title="Roll Number Slip Generator" data-desc="An automated system to generate, manage, and print student roll number slips for examinations." data-skills="Data Processing, Automation">
+          <h3 class="project-title">Roll Number Slip Generator</h3>
+          <span class="click-hint"><i class="fa-solid fa-hand-pointer"></i> Click for details</span>
+        </article>
+        
+        <article class="card project-card clickable" data-title="Date Sheet System" data-desc="A scheduling system designed to automatically create and manage examination date sheets without conflicts." data-skills="Scheduling Logic, System Architecture">
+          <h3 class="project-title">Date Sheet System</h3>
+          <span class="click-hint"><i class="fa-solid fa-hand-pointer"></i> Click for details</span>
+        </article>
+        
+        <article class="card project-card clickable" data-title="Honey Pot System" data-desc="A decoy system deployed to attract malicious traffic, analyze attack vectors, and improve network security." data-skills="Cybersecurity, Network Security, Intrusion Detection">
+          <h3 class="project-title">Honey Pot System</h3>
+          <span class="click-hint"><i class="fa-solid fa-hand-pointer"></i> Click for details</span>
+        </article>
+        
+        <article class="card project-card clickable" data-title="MobSF Mobile Security Analysis" data-desc="Conducted comprehensive mobile application security assessments and penetration testing using the MobSF framework." data-skills="Mobile Security, Penetration Testing, Vulnerability Assessment">
+          <h3 class="project-title">MobSF Mobile Security Analysis</h3>
+          <span class="click-hint"><i class="fa-solid fa-hand-pointer"></i> Click for details</span>
+        </article>
+        
+        <article class="card project-card clickable" data-title="Network Scanning Labs" data-desc="Hands-on labs focused on discovering hosts, services, and vulnerabilities across networks." data-skills="Nmap, Networking, Ethical Hacking">
+          <h3 class="project-title">Network Scanning Labs</h3>
+          <span class="click-hint"><i class="fa-solid fa-hand-pointer"></i> Click for details</span>
+        </article>
+        
+        <article class="card project-card clickable" data-title="Penetration Testing Labs" data-desc="Simulated attack environments to practice exploiting vulnerabilities and securing systems." data-skills="Metasploit, Security Assessment, Linux">
+          <h3 class="project-title">Penetration Testing Labs</h3>
+          <span class="click-hint"><i class="fa-solid fa-hand-pointer"></i> Click for details</span>
+        </article>
+        
+        <article class="card project-card clickable" data-title="Cisco Packet Tracer Network Designs" data-desc="Designed, configured, and simulated complex enterprise networking topologies to ensure robust connectivity." data-skills="Cisco, Network Simulation, Routing & Switching">
+          <h3 class="project-title">Cisco Packet Tracer Network Designs</h3>
+          <span class="click-hint"><i class="fa-solid fa-hand-pointer"></i> Click for details</span>
+        </article>
+        
+        <article class="card project-card active-project clickable" data-title="Spyware Detector" data-desc="My final year project: an advanced system being developed to detect, analyze, and quarantine unauthorized spyware." data-skills="Malware Analysis, Cybersecurity, Threat Intelligence">
           <div class="badge">In Progress</div>
           <h3 class="project-title">Spyware Detector</h3>
           <p class="project-desc">Final Year Project</p>
+          <span class="click-hint"><i class="fa-solid fa-hand-pointer"></i> Click for details</span>
         </article>
       </div>
     </div>
@@ -192,6 +229,17 @@
   <div id="certModal" class="cert-modal">
     <span id="closeCert" class="close">&times;</span>
     <img id="certModalImg" alt="Certificate Preview">
+  </div>
+
+  <!-- Project Details Modal -->
+  <div id="projectModal" class="cert-modal">
+    <span id="closeProjectModal" class="close">&times;</span>
+    <div class="modal-content project-modal-content">
+      <h2 id="modalProjectTitle">Project Title</h2>
+      <p id="modalProjectDesc">Description goes here.</p>
+      <div class="skills-label">Skills Used:</div>
+      <div id="modalProjectSkills" class="modal-skills"></div>
+    </div>
   </div>
 
   <!-- GOALS -->
