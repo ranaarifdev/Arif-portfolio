@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Muhammad Arif - Professional Portfolio</title>
+
+  <!-- Preload hero image -->
+  <link rel="preload" as="image" href="rana.jpg">
+
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Animated background blobs -->
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <img src="rana.jpg" alt="Rana Arif" class="brand-pic">
+        <span>Muhammad Arif</span>
+      </div>
+      <input type="checkbox" id="nav-toggle">
+      <label for="nav-toggle" class="hamburger"><i class="fa fa-bars"></i></label>
+      <ul class="links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#strengths">Goals</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="cta">
+        <a class="btn ghost" id="gmailBtn" title="Open Gmail compose">
+          <i class="fa-regular fa-envelope"></i> Gmail
+        </a>
+        <a class="btn primary" id="callBtn" title="Call now">
+          <i class="fa-solid fa-phone"></i> Call
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container hero-inner">
+      <img src="rana.jpg" alt="Profile picture of Rana Arif" class="profile-pic" loading="eager" decoding="async">
+      <h1 class="title">Muhammad Arif</h1>
+      <p class="subtitle"><span id="typing"></span><span class="cursor">|</span></p>
+
+      <div class="contact-info">
+        <a href="mailto:ranaarifnoon66@gmail.com" class="chip"><i class="fas fa-envelope"></i> Email</a>
+        <a href="tel:+923060830941" class="chip"><i class="fas fa-phone"></i> +92 306 0830941</a>
+        <span class="chip"><i class="fas fa-map-marker-alt"></i> Multan, Pakistan</span>
+        <a href="https://github.com/ranaarifdev" target="_blank" class="chip"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://www.linkedin.com/in/muhammad-arif-294a47372" target="_blank" class="chip"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      </div>
+
+      <a href="#projects" class="btn scroll-btn">See Projects <i class="fa-solid fa-angles-down"></i></a>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="section reveal">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>I am Muhammad Arif (Rana Arif), a BS Cyber Security student at Emerson University Multan. I am passionate about exploring new technologies, especially in ethical hacking, penetration testing, and secure software development. My curiosity and dedication drive me to find practical solutions to real-world IT challenges.</p>
+      <p>Alongside my studies, I build Android applications, experiment with networking tools, and learn frameworks such as Jetpack Compose and Google APIs.</p>
+      <p>I regularly take online courses, workshops, and hackathons to enhance my knowledge. With hands-on practice using tools like Nmap, Metasploit, and iTextPDF, I enjoy building solutions that connect cybersecurity and software development.</p>
+      <p>Ultimately, I aim to become a leading cybersecurity professional, mentor others, and launch projects combining security, software, and entrepreneurship.</p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section alt reveal">
+    <div class="container">
+      <h2>💡 Technical Skills</h2>
+      <div class="cards">
+        <article class="card"><h3>Kotlin & Jetpack Compose</h3><p>Modern Android development with Jetpack libraries.</p></article>
+        <article class="card"><h3>Android Studio</h3><p>Official IDE for Android app development.</p></article>
+        <article class="card"><h3>Python (Basic)</h3><p>Learning Python for automation & security scripts.</p></article>
+        <article class="card"><h3>HTML, CSS, JavaScript</h3><p>Web development fundamentals with front-end coding.</p></article>
+        <article class="card"><h3>Computer Networking</h3><p>Knowledge of IP, DNS, ports, firewalls & troubleshooting.</p></article>
+        <article class="card"><h3>Cybersecurity Basics</h3><p>Understanding of ethical hacking & system security.</p></article>
+        <article class="card"><h3>Nmap, Metasploit, Linux</h3><p>Hands-on practice with penetration testing tools.</p></article>
+        <article class="card"><h3>MS Office</h3><p>Proficiency in Word, Excel & PowerPoint.</p></article>
+        <article class="card"><h3>Git & GitHub</h3><p>Version control & project collaboration.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section id="tools" class="section reveal">
+    <div class="container">
+      <h2>🛠️ Tools & Libraries</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Cisco Packet Tracer</h3>
+          <p>Powerful network simulation tool used for designing and testing networking setups.</p>
+        </article>
+        <article class="card">
+          <h3>Wireshark</h3>
+          <p>Network protocol analyzer used to capture and inspect data packets in real time.</p>
+        </article>
+        <article class="card">
+          <h3>Dev++</h3>
+          <p>Simple C/C++ integrated development environment (IDE) for writing and debugging code.</p>
+        </article>
+        <article class="card">
+          <h3>VirtualBox</h3>
+          <p>Virtualization software for running multiple operating systems on a single machine.</p>
+        </article>
+        <article class="card">
+          <h3>VMware</h3>
+          <p>Professional-grade virtualization platform for creating and managing virtual machines.</p>
+        </article>
+        <article class="card">
+          <h3>IntelliJ IDEA Community</h3>
+          <p>Open-source IDE for Java and other programming languages with smart code assistance.</p>
+        </article>
+        <article class="card"><h3>Google APIs</h3><p>APIs for authentication, maps, cloud, and AI services.</p></article>
+        <article class="card"><h3>DownloadManager</h3><p>Android system service for managing downloads efficiently.</p></article>
+        <article class="card"><h3>Nmap</h3><p>Powerful network scanner for security testing & analysis.</p></article>
+        <article class="card"><h3>Android Studio</h3><p>Official IDE for Android development with Kotlin & Java.</p></article>
+        <article class="card"><h3>Visual Studio</h3><p>Popular IDE for .NET, C++, Python, and cross-platform apps.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section reveal">
+    <div class="container">
+      <h2><i class="fa-solid fa-shield-halved"></i> Projects</h2>
+      <div class="cards project-grid">
+        <article class="card project-card"><h3 class="project-title">Attendance, Quiz & Assignment Status</h3></article>
+        <article class="card project-card"><h3 class="project-title">CGPA Calculator</h3></article>
+        <article class="card project-card"><h3 class="project-title">Roll Number Slip Generator</h3></article>
+        <article class="card project-card"><h3 class="project-title">Date Sheet System</h3></article>
+        <article class="card project-card"><h3 class="project-title">Honey Pot System</h3></article>
+        <article class="card project-card"><h3 class="project-title">MobSF Mobile Security Analysis</h3></article>
+        <article class="card project-card"><h3 class="project-title">Network Scanning Labs</h3></article>
+        <article class="card project-card"><h3 class="project-title">Penetration Testing Labs</h3></article>
+        <article class="card project-card"><h3 class="project-title">Cisco Packet Tracer Network Designs</h3></article>
+        <article class="card project-card active-project">
+          <div class="badge">In Progress</div>
+          <h3 class="project-title">Spyware Detector</h3>
+          <p class="project-desc">Final Year Project</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="section alt reveal">
+    <div class="container">
+      <h2>Education</h2>
+      <ul class="timeline">
+        <li><div class="dot"></div><div class="content">🎓 <strong>BS Cyber Security</strong> – Emerson University Multan <span class="year">(2023–2027)</span> <br><em>Current CGPA: 3.31</em></div></li>
+        <li><div class="dot"></div><div class="content">🎓 <strong>FSc Pre-Medical</strong> – Govt. Higher Secondary School Raja Ram <span class="year">(2023)</span></div></li>
+        <li><div class="dot"></div><div class="content">🎓 <strong>Matric (Science)</strong> – Govt. Higher Secondary School Raja Ram <span class="year">(2021)</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications" class="section reveal">
+    <div class="container">
+      <h2>Certifications</h2>
+      <div class="cards">
+        <article class="card"><h3>Introduction to Penetration Testing</h3><p>Security Blue Team | Completed: 08 Sep 2025 | ID: 909902876</p><img src="cert-penetration.jpg" alt="Penetration Testing Certificate" loading="lazy"></article>
+        <article class="card"><h3>Introduction to Network Analysis</h3><p>Completed: 09 Sep 2025 | ID: 936250571</p><img src="cert-network.jpg" alt="Network Analysis Certificate" loading="lazy"></article>
+        <article class="card"><h3>Mental Health in Cybersecurity</h3><p>Completed: 09 Sep 2025 | ID: 710504438</p><img src="cert-mentalhealth.jpg" alt="Mental Health in Cybersecurity Certificate" loading="lazy"></article>
+        <article class="card"><h3>Introduction to IoT and Digital Transformation</h3><p>Cisco Networking Academy | Completed: 15 Sep 2025</p><img src="cert-iot1.jpg" alt="IoT and Digital Transformation Certificate" loading="lazy"></article>
+        <article class="card"><h3>IoT Certificate Update</h3><p>Issued: 15 Sep 2025</p><img src="cert-iot2.jpg" alt="IoT Certificate Update" loading="lazy"></article>
+        <article class="card"><h3>Introduction to Cybersecurity</h3><p>Cisco Networking Academy | Issued: 20 Sep 2025</p><img src="cert-cybersecurity1.jpg" alt="Cisco Introduction to Cybersecurity Certificate" loading="lazy"></article>
+        <article class="card"><h3>I2CS Update</h3><p>Cisco Networking Academy | Issued: 20 Sep 2025</p><img src="cert-cybersecurity2.jpg" alt="Cisco I2CS Update Certificate" loading="lazy"></article>
+        <article class="card"><h3>Introduction to Virtual Machines</h3><p>Security Blue Team | Issued: 06 Oct 2025</p><img src="cert-virtualmachines.jpg" alt="Security Blue Team Virtual Machines Certificate" loading="lazy"></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificate Preview Modal -->
+  <div id="certModal" class="cert-modal">
+    <span id="closeCert" class="close">&times;</span>
+    <img id="certModalImg" alt="Certificate Preview">
+  </div>
+
+  <!-- GOALS -->
+  <section id="strengths" class="section reveal">
+    <div class="container">
+      <h2>🎯 Career Goals</h2>
+      <div class="cards">
+        <article class="card"><h3>Certified Ethical Hacker (CEH)</h3><p>Aim to achieve CEH certification to strengthen my cybersecurity expertise.</p></article>
+        <article class="card"><h3>Master Cybersecurity Tools</h3><p>Gain hands-on experience with advanced penetration testing tools & frameworks.</p></article>
+        <article class="card"><h3>Bug Bounty & CTFs</h3><p>Actively participate in Capture The Flag competitions and bug bounty programs.</p></article>
+        <article class="card"><h3>GitHub Portfolio</h3><p>Build a strong GitHub profile showcasing real-world cybersecurity & coding projects.</p></article>
+        <article class="card"><h3>Online IT Business</h3><p>Launch a digital business combining software, security, and entrepreneurship.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANGUAGES -->
+  <section id="languages" class="section alt reveal">
+    <div class="container">
+      <h2>Languages</h2>
+      <p>Urdu (Native), Punjabi (Fluent), English (Intermediate)</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section reveal">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <form id="contactForm" class="contact-form">
+        <div class="field"><label for="name">Your Name</label><input id="name" name="name" type="text" placeholder="e.g., Rana Arif" required/></div>
+        <div class="field"><label for="email">Your Email</label><input id="email" name="email" type="email" placeholder="e.g., arif@example.com" required/></div>
+        <div class="field"><label for="message">Your Message</label><textarea id="message" name="message" placeholder="Write your message..." rows="5" required></textarea></div>
+        <button type="submit" class="btn primary wide"><i class="fa-regular fa-paper-plane"></i> Send Message</button>
+        <p class="form-hint">support me —.</p>
+      </form>
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 Rana Arif | All Rights Reserved</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
