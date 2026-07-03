@@ -81,16 +81,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const navLinks = document.querySelector('.nav .links');
 
   if (navToggle && navLinks) {
-    navToggle.addEventListener('change', function (e) {
-      navLinks.style.display = e.target.checked ? 'flex' : '';
-    });
-
     navLinks.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
         navToggle.checked = false;
-        if (window.innerWidth <= 900) {
-          navLinks.style.display = '';
-        }
       });
     });
   }
@@ -207,35 +200,135 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /* ---------- Certificate Preview Modal ---------- */
-  const certImages = document.querySelectorAll('#certifications .card img');
+  /* ---------- Certifications Filter & Lightbox ---------- */
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const certCards = document.querySelectorAll('.cert-card');
   const certModal = document.getElementById('certModal');
   const certModalImg = document.getElementById('certModalImg');
+  const certModalCaption = document.getElementById('certModalCaption');
   const closeCert = document.getElementById('closeCert');
+  const prevCertBtn = document.getElementById('prevCert');
+  const nextCertBtn = document.getElementById('nextCert');
 
-  if (certModal && certModalImg) {
-    certImages.forEach(function (img) {
+  let activeCerts = Array.from(certCards); // List of currently visible certificates
+  let currentCertIndex = 0;
+
+  // Filtering logic
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', function () {
+      // Toggle active state on buttons
+      filterBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+
+      const filterValue = this.getAttribute('data-filter');
+
+      certCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        if (filterValue === 'all' || category === filterValue) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      // Update the active list for lightbox slider
+      activeCerts = Array.from(certCards).filter(card => !card.classList.contains('hidden'));
+    });
+  });
+
+  // Modal navigation function
+  function updateModalCert(index) {
+    if (activeCerts.length === 0) return;
+    
+    // Circular wrap index bounds
+    if (index >= activeCerts.length) index = 0;
+    if (index < 0) index = activeCerts.length - 1;
+    
+    currentCertIndex = index;
+    const selectedCard = activeCerts[currentCertIndex];
+    const imgEl = selectedCard.querySelector('img');
+    const titleEl = selectedCard.querySelector('h3');
+    const descEl = selectedCard.querySelector('p');
+    
+    if (certModalImg && imgEl) {
+      certModalImg.src = imgEl.src;
+    }
+    
+    if (certModalCaption) {
+      const titleText = titleEl ? titleEl.textContent : '';
+      const descText = descEl ? descEl.textContent : '';
+      certModalCaption.innerHTML = `<strong>${titleText}</strong><br><span style="font-size:0.85rem;opacity:0.8;">${descText}</span>`;
+    }
+  }
+
+  // Open modal on image click
+  certCards.forEach(card => {
+    const img = card.querySelector('img');
+    if (img) {
       img.addEventListener('click', function (e) {
         e.stopPropagation();
         e.preventDefault();
-        certModal.style.display = 'block';
-        certModalImg.src = img.src;
-      });
-    });
-
-    if (closeCert) {
-      closeCert.addEventListener('click', function () {
-        certModal.style.display = 'none';
+        
+        // Update visible list before opening (just in case)
+        activeCerts = Array.from(certCards).filter(c => !c.classList.contains('hidden'));
+        
+        const cardIndex = activeCerts.indexOf(card);
+        if (cardIndex !== -1) {
+          updateModalCert(cardIndex);
+          if (certModal) {
+            certModal.style.display = 'block';
+          }
+        }
       });
     }
+  });
 
-    // Close when clicking outside the image
+  // Close modal
+  function closeCertModal() {
+    if (certModal) {
+      certModal.style.display = 'none';
+    }
+  }
+
+  if (closeCert) {
+    closeCert.addEventListener('click', closeCertModal);
+  }
+
+  if (certModal) {
     certModal.addEventListener('click', function (e) {
-      if (e.target === certModal) {
-        certModal.style.display = 'none';
+      if (e.target === certModal || e.target.classList.contains('modal-img-container')) {
+        closeCertModal();
       }
     });
   }
+
+  // Next & Prev button actions
+  if (prevCertBtn) {
+    prevCertBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      updateModalCert(currentCertIndex - 1);
+    });
+  }
+
+  if (nextCertBtn) {
+    nextCertBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      updateModalCert(currentCertIndex + 1);
+    });
+  }
+
+  // Keyboard navigation
+  window.addEventListener('keydown', function (e) {
+    if (certModal && certModal.style.display === 'block') {
+      if (e.key === 'ArrowRight') {
+        updateModalCert(currentCertIndex + 1);
+      } else if (e.key === 'ArrowLeft') {
+        updateModalCert(currentCertIndex - 1);
+      } else if (e.key === 'Escape') {
+        closeCertModal();
+      }
+    }
+  });
 
   /* ---------- Project Details Modal ---------- */
   const projectCards = document.querySelectorAll('.project-card.clickable');
