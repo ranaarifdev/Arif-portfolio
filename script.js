@@ -41,13 +41,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function typeLoop() {
     if (!typingEl) return;
+    if (typeTimeout) clearTimeout(typeTimeout);
     const current = titles[ti % titles.length];
 
     if (!deleting) {
       typingEl.textContent = current.slice(0, ci + 1);
       ci++;
       if (ci === current.length) {
-        typeTimeout = setTimeout(function () { deleting = true; typeLoop(); }, 1000);
+        typeTimeout = setTimeout(function () { deleting = true; typeLoop(); }, 1200);
         return;
       }
     } else {
@@ -58,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ti++;
       }
     }
-    typeTimeout = setTimeout(typeLoop, deleting ? 60 : 120);
+    typeTimeout = setTimeout(typeLoop, deleting ? 50 : 100);
   }
   typeLoop();
 
@@ -192,6 +193,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const to = 'ranaarifnoon66@gmail.com';
         const subject = encodeURIComponent('Portfolio Message from ' + data.from_name);
         const body = encodeURIComponent(data.message + '\n\nReply to: ' + data.from_email);
+        form.reset();
         window.location.href = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
         showToast('Opening your email client...', 'success');
       }
@@ -277,16 +279,18 @@ document.addEventListener('DOMContentLoaded', function () {
           updateModalCert(cardIndex);
           if (certModal) {
             certModal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // lock scroll
           }
         }
       });
     }
   });
 
-  // Close modal
+  // Close modal — restore body scroll
   function closeCertModal() {
     if (certModal) {
       certModal.style.display = 'none';
+      document.body.style.overflow = '';
     }
   }
 
@@ -328,6 +332,11 @@ document.addEventListener('DOMContentLoaded', function () {
         closeCertModal();
       }
     }
+    // Close project modal with Escape too
+    if (projectModal && projectModal.style.display === 'block' && e.key === 'Escape') {
+      projectModal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
   });
 
   /* ---------- Project Details Modal ---------- */
@@ -367,14 +376,22 @@ document.addEventListener('DOMContentLoaded', function () {
     if (closeProjectModal) {
       closeProjectModal.addEventListener('click', function() {
         projectModal.style.display = 'none';
+        document.body.style.overflow = '';
       });
     }
 
     projectModal.addEventListener('click', function(e) {
       if (e.target === projectModal) {
         projectModal.style.display = 'none';
+        document.body.style.overflow = '';
       }
     });
+  }
+
+  /* ---------- Auto-update footer year ---------- */
+  const footerYear = document.getElementById('footerYear');
+  if (footerYear) {
+    footerYear.textContent = new Date().getFullYear();
   }
 
 });
