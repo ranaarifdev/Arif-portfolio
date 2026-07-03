@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Muhammad Arif - Professional Portfolio</title>
+  <title>Muhammad Arif - Cybersecurity Portfolio</title>
 
   <!-- Preload hero image -->
   <link rel="preload" as="image" href="rana.jpg">
 
   <link rel="stylesheet" href="style.css"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
@@ -211,29 +211,203 @@
   <!-- CERTIFICATIONS -->
   <section id="certifications" class="section reveal">
     <div class="container">
-      <h2>Certifications</h2>
-      <div class="cards">
-        <article class="card"><h3>Introduction to Penetration Testing</h3><p>Security Blue Team | Completed: 08 Sep 2025 | ID: 909902876</p><img src="cert-penetration.jpg" alt="Penetration Testing Certificate" loading="lazy"></article>
-        <article class="card"><h3>Introduction to Network Analysis</h3><p>Completed: 09 Sep 2025 | ID: 936250571</p><img src="cert-network.jpg" alt="Network Analysis Certificate" loading="lazy"></article>
-        <article class="card"><h3>Mental Health in Cybersecurity</h3><p>Completed: 09 Sep 2025 | ID: 710504438</p><img src="cert-mentalhealth.jpg" alt="Mental Health in Cybersecurity Certificate" loading="lazy"></article>
-        <article class="card"><h3>Introduction to IoT and Digital Transformation</h3><p>Cisco Networking Academy | Completed: 15 Sep 2025</p><img src="cert-iot1.jpg" alt="IoT and Digital Transformation Certificate" loading="lazy"></article>
-        <article class="card"><h3>IoT Certificate Update</h3><p>Issued: 15 Sep 2025</p><img src="cert-iot2.jpg" alt="IoT Certificate Update" loading="lazy"></article>
-        <article class="card"><h3>Introduction to Cybersecurity</h3><p>Cisco Networking Academy | Issued: 20 Sep 2025</p><img src="cert-cybersecurity1.jpg" alt="Cisco Introduction to Cybersecurity Certificate" loading="lazy"></article>
-        <article class="card"><h3>I2CS Update</h3><p>Cisco Networking Academy | Issued: 20 Sep 2025</p><img src="cert-cybersecurity2.jpg" alt="Cisco I2CS Update Certificate" loading="lazy"></article>
-        <article class="card"><h3>Introduction to Virtual Machines</h3><p>Security Blue Team | Issued: 06 Oct 2025</p><img src="cert-virtualmachines.jpg" alt="Security Blue Team Virtual Machines Certificate" loading="lazy"></article>
+      <h2><i class="fa-solid fa-graduation-cap"></i> Certifications</h2>
+      <p class="section-intro">A showcase of my professional certificates, specialized training courses, and academic achievements in cybersecurity, networks, and general information technology.</p>
+      
+      <!-- Category Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="cybersecurity"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</button>
+        <button class="filter-btn" data-filter="networking"><i class="fa-solid fa-network-wired"></i> Networking</button>
+        <button class="filter-btn" data-filter="it"><i class="fa-solid fa-laptop-code"></i> IT & Gen Tech</button>
+      </div>
+
+      <div class="cards cert-grid">
+        <article class="card cert-card" data-category="cybersecurity">
+          <h3>Introduction to Penetration Testing</h3>
+          <p>Security Blue Team | Completed: 08 Sep 2025 | ID: 909902876</p>
+          <div class="cert-img-wrapper">
+            <img src="cert-penetration.jpg" alt="Penetration Testing Certificate" loading="lazy">
+          </div>
+        </article>
+
+        <article class="card cert-card" data-category="cybersecurity">
+          <h3>Penetration Testing Fundamentals</h3>
+          <p>Security Blue Team | Completed: 2025</p>
+          <div class="cert-img-wrapper">
+            <img src="cert-penetrationtesting.jpg" alt="Penetration Testing Fundamentals Certificate" loading="lazy">
+          </div>
+        </article>
+
+        <article class="card cert-card" data-category="cybersecurity">
+          <h3>Certified Ethical Hacker (CEH) Course</h3>
+          <p>Coursera | Completed: 2025</p>
+          <div class="cert-img-wrapper">
+            <img src="cert-ceh.jpg" alt="CEH Course Certificate" loading="lazy">
+          </div>
+        </article>
+
+        <article class="card cert-card" data-category="cybersecurity">
+          <h3>Ethical Hacking Essentials</h3>
+          <p>Coursera | Completed: 2025</p>
+          <div class="cert-img-wrapper">
+            <img src="cert-ethical-hacking.jpg" alt="Ethical Hacking Certificate" loading="lazy">
+          </div>
+        </article>
+
+        <article class="card cert-card" data-category="cybersecurity">
+          <h3>Cyber Threat Management</h3>
+          <p>Coursera | Cisco | Completed: 2025</p>
+          <div class="cert-img-wrapper">
+            <img src="cert-cyber-threat-management.jpeg" alt="Cyber Threat Management Certificate" loading="lazy">
+          </div>
+        </article>
+
+        <article class="card cert-card" data-category="cybersecurity">
+          <h3>Foundations of Cybersecurity</h3>
+          <p>Coursera | Google | Completed: 2025</p>
+          <div class="cert-img-wrapper">
+            <img src="cert-foundation-cybersecurity.jpeg" alt="Foundations of Cybersecurity Certificate" loading="lazy">
+          </div>
+        </article>
+
+        <article class="card cert-card" data-category="cybersecurity">
+          <h3>Introduction to Cybersecurity</h3>
+          <p>Cisco Networking Academy | Issued: 20 Sep 2025</p>
+          <div class="cert-img-wrapper">
+            <img src="cert-cybersecurity1.jpg" alt="Cisco Introduction to Cybersecurity Certificate" loading="lazy">
+          </div>
+        </article>
+
+        <article class="card cert-card" data-category="cybersecurity">
+          <h3>I2CS Update</h3>
+          <p>Cisco Networking Academy | Issued: 20 Sep 2025</p>
+          <div class="cert-img-wrapper">
+            <img src="cert-cybersecurity2.jpg" alt="Cisco I2CS Update Certificate" loading="lazy">
+          </div>
+        </article>
+
+        <article class="card cert-card" data-category="networking">
+          <h3>Introduction to Network Analysis</h3>
+          <p>Completed: 09 Sep 2025 | ID: 936250571</p>
+          <div class="cert-img-wrapper">
+            <img src="cert-network.jpg" alt="Network Analysis Certificate" loading="lazy">
+          </div>
+        </article>
+
+        <article class="card cert-card" data-category="networking">
+          <h3>CCNA Basic</h3>
+          <p>Coursera | Cisco | Completed: 2025</p>
+          <div class="cert-img-wrapper">
+            <img src="cert-ccna-basic.jpg" alt="CCNA Basic Certificate" loading="lazy">
+          </div>
+        </article>
+
+        <article class="card cert-card" data-category="networking">
+          <h3>Network Architecture & Protocols</h3>
+          <p>Coursera | Completed: 2025</p>
+          <div class="cert-img-wrapper">
+            <img src="cert-network-architecture.jpeg" alt="Network Architecture Certificate" loading="lazy">
+          </div>
+        </article>
+
+        <article class="card cert-card" data-category="it">
+          <h3>Google Data Analytics Foundations</h3>
+          <p>Coursera | Google | Completed: 2025</p>
+          <div class="cert-img-wrapper">
+            <img src="cert-google-data-foundation.jpg" alt="Google Data Analytics Certificate" loading="lazy">
+          </div>
+        </article>
+
+        <article class="card cert-card" data-category="it">
+          <h3>Introduction to IoT & Digital Transformation</h3>
+          <p>Cisco Networking Academy | Completed: 15 Sep 2025</p>
+          <div class="cert-img-wrapper">
+            <img src="cert-iot1.jpg" alt="IoT and Digital Transformation Certificate" loading="lazy">
+          </div>
+        </article>
+
+        <article class="card cert-card" data-category="it">
+          <h3>IoT Certificate Update</h3>
+          <p>Cisco Networking Academy | Issued: 15 Sep 2025</p>
+          <div class="cert-img-wrapper">
+            <img src="cert-iot2.jpg" alt="IoT Certificate Update" loading="lazy">
+          </div>
+        </article>
+
+        <article class="card cert-card" data-category="it">
+          <h3>IoT for Everyone</h3>
+          <p>Coursera | Completed: 2025</p>
+          <div class="cert-img-wrapper">
+            <img src="cert-coursera-iot.jpg" alt="IoT for Everyone Certificate" loading="lazy">
+          </div>
+        </article>
+
+        <article class="card cert-card" data-category="it">
+          <h3>Introduction to Virtual Machines</h3>
+          <p>Security Blue Team | Issued: 06 Oct 2025</p>
+          <div class="cert-img-wrapper">
+            <img src="cert-virtualmachines.jpg" alt="Security Blue Team Virtual Machines Certificate" loading="lazy">
+          </div>
+        </article>
+
+        <article class="card cert-card" data-category="it">
+          <h3>Microsoft Computer Essentials</h3>
+          <p>Coursera | Microsoft | Completed: 2025</p>
+          <div class="cert-img-wrapper">
+            <img src="cert-microsoft-computer.jpg" alt="Microsoft Computer Essentials Certificate" loading="lazy">
+          </div>
+        </article>
+
+        <article class="card cert-card" data-category="it">
+          <h3>Microsoft Word Specialist</h3>
+          <p>Coursera | Microsoft | Completed: 2025</p>
+          <div class="cert-img-wrapper">
+            <img src="cert-microsoft-word.jpg" alt="Microsoft Word Specialist Certificate" loading="lazy">
+          </div>
+        </article>
+
+        <article class="card cert-card" data-category="it">
+          <h3>System Analysis & Design</h3>
+          <p>Coursera | Completed: 2025</p>
+          <div class="cert-img-wrapper">
+            <img src="cert-system-analysis.jpg" alt="System Analysis Certificate" loading="lazy">
+          </div>
+        </article>
+
+        <article class="card cert-card" data-category="it">
+          <h3>AI for Professionals</h3>
+          <p>Udemy | Completed: 2025</p>
+          <div class="cert-img-wrapper">
+            <img src="cert-udemy-ai-professionals.jpg" alt="AI for Professionals Certificate" loading="lazy">
+          </div>
+        </article>
+
+        <article class="card cert-card" data-category="cybersecurity">
+          <h3>Mental Health in Cybersecurity</h3>
+          <p>Completed: 09 Sep 2025 | ID: 710504438</p>
+          <div class="cert-img-wrapper">
+            <img src="cert-mentalhealth.jpg" alt="Mental Health in Cybersecurity Certificate" loading="lazy">
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- Certificate Preview Modal -->
   <div id="certModal" class="cert-modal">
-    <span id="closeCert" class="close">&times;</span>
-    <img id="certModalImg" alt="Certificate Preview">
+    <span id="closeCert" class="close-btn">&times;</span>
+    <button class="modal-nav prev-btn" id="prevCert" aria-label="Previous Certificate"><i class="fa-solid fa-chevron-left"></i></button>
+    <div class="modal-img-container">
+      <img id="certModalImg" alt="Certificate Preview">
+    </div>
+    <button class="modal-nav next-btn" id="nextCert" aria-label="Next Certificate"><i class="fa-solid fa-chevron-right"></i></button>
+    <div class="modal-caption" id="certModalCaption">Certificate Name</div>
   </div>
 
   <!-- Project Details Modal -->
   <div id="projectModal" class="cert-modal">
-    <span id="closeProjectModal" class="close">&times;</span>
+    <span id="closeProjectModal" class="close-btn">&times;</span>
     <div class="modal-content project-modal-content">
       <h2 id="modalProjectTitle">Project Title</h2>
       <p id="modalProjectDesc">Description goes here.</p>
@@ -273,7 +447,7 @@
         <div class="field"><label for="email">Your Email</label><input id="email" name="email" type="email" placeholder="e.g., arif@example.com" required/></div>
         <div class="field"><label for="message">Your Message</label><textarea id="message" name="message" placeholder="Write your message..." rows="5" required></textarea></div>
         <button type="submit" class="btn primary wide"><i class="fa-regular fa-paper-plane"></i> Send Message</button>
-        <p class="form-hint">support me —.</p>
+        <p class="form-hint">Feel free to reach out. I will get back to you as soon as possible.</p>
       </form>
       <div id="toast" class="toast" role="status" aria-live="polite"></div>
     </div>
