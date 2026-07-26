@@ -70,6 +70,13 @@ h1, h2, h3, .brand {
   .nav-inner{justify-content:space-between}
   .cta{margin-left:auto}
 }
+@media (max-width:640px){
+  .nav-inner{padding:10px 16px; gap:8px}
+  .brand{font-size:.95rem; min-width:0}
+  .brand span{overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+  .cta{display:none}
+  .links{top:58px}
+}
 
 /* HERO */
 .hero{
@@ -532,6 +539,8 @@ input:focus, textarea:focus{border-color: rgba(124,92,255,.6); box-shadow: 0 0 0
   h2 { font-size: 24px; }
   .subtitle { font-size: 16px; }
   .section { padding: 50px 16px; }
+  .cert-grid { grid-template-columns: minmax(0, 1fr); }
+  .cert-card { min-width: 0; }
 }
 
 /* Button disabled state */

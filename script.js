@@ -259,7 +259,13 @@ document.addEventListener('DOMContentLoaded', function () {
     if (certModalCaption) {
       const titleText = titleEl ? titleEl.textContent : '';
       const descText = descEl ? descEl.textContent : '';
-      certModalCaption.innerHTML = `<strong>${titleText}</strong><br><span style="font-size:0.85rem;opacity:0.8;">${descText}</span>`;
+      const title = document.createElement('strong');
+      const description = document.createElement('span');
+      title.textContent = titleText;
+      description.textContent = descText;
+      description.style.fontSize = '0.85rem';
+      description.style.opacity = '0.8';
+      certModalCaption.replaceChildren(title, document.createElement('br'), description);
     }
   }
 
@@ -321,24 +327,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Keyboard navigation
-  window.addEventListener('keydown', function (e) {
-    if (certModal && certModal.style.display === 'block') {
-      if (e.key === 'ArrowRight') {
-        updateModalCert(currentCertIndex + 1);
-      } else if (e.key === 'ArrowLeft') {
-        updateModalCert(currentCertIndex - 1);
-      } else if (e.key === 'Escape') {
-        closeCertModal();
-      }
-    }
-    // Close project modal with Escape too
-    if (projectModal && projectModal.style.display === 'block' && e.key === 'Escape') {
-      projectModal.style.display = 'none';
-      document.body.style.overflow = '';
-    }
-  });
-
   /* ---------- Project Details Modal ---------- */
   const projectCards = document.querySelectorAll('.project-card.clickable');
   const projectModal = document.getElementById('projectModal');
@@ -358,7 +346,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (modalProjectDesc) modalProjectDesc.textContent = desc;
         
         if (modalProjectSkills) {
-          modalProjectSkills.innerHTML = '';
+          modalProjectSkills.replaceChildren();
           if (skills) {
             const skillArray = skills.split(',').map(s => s.trim());
             skillArray.forEach(skill => {
@@ -370,6 +358,7 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         }
         projectModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
       });
     });
 
@@ -387,6 +376,24 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+
+  // Keyboard navigation
+  window.addEventListener('keydown', function (e) {
+    if (certModal && certModal.style.display === 'block') {
+      if (e.key === 'ArrowRight') {
+        updateModalCert(currentCertIndex + 1);
+      } else if (e.key === 'ArrowLeft') {
+        updateModalCert(currentCertIndex - 1);
+      } else if (e.key === 'Escape') {
+        closeCertModal();
+      }
+    }
+
+    if (projectModal && projectModal.style.display === 'block' && e.key === 'Escape') {
+      projectModal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  });
 
   /* ---------- Auto-update footer year ---------- */
   const footerYear = document.getElementById('footerYear');
