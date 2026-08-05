@@ -64,18 +64,30 @@ document.addEventListener('DOMContentLoaded', function () {
   typeLoop();
 
   /* ---------- Reveal on Scroll ---------- */
-  const observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
+  const revealElements = document.querySelectorAll('.reveal');
 
-  document.querySelectorAll('.reveal').forEach(function (el) {
-    observer.observe(el);
-  });
+  // A percentage threshold breaks for very tall sections (such as the
+  // certificate list on mobile), because 12% can never fit in the viewport.
+  // Reveal as soon as an element enters the lower part of the screen instead.
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+
+    revealElements.forEach(function (el) {
+      observer.observe(el);
+    });
+  } else {
+    // Keep all content usable in older mobile browsers.
+    revealElements.forEach(function (el) {
+      el.classList.add('revealed');
+    });
+  }
 
   /* ---------- Mobile Menu Toggle ---------- */
   const navToggle = document.getElementById('nav-toggle');
