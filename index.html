@@ -8,24 +8,47 @@
   <meta property="og:title" content="Muhammad Arif - Cybersecurity Portfolio"/>
   <meta property="og:description" content="BS Cyber Security student passionate about ethical hacking, penetration testing, and secure software development."/>
   <meta property="og:type" content="website"/>
+  <meta property="og:image" content="rana.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Muhammad Arif - Cybersecurity Portfolio"/>
+  <meta name="twitter:description" content="Cybersecurity and software-development portfolio of Muhammad Arif (Rana Arif)."/>
+  <meta name="twitter:image" content="rana.jpg"/>
   <meta name="theme-color" content="#0b1020"/>
+  <link rel="canonical" href="./"/>
+  <link rel="icon" href="rana.jpg"/>
   <title>Muhammad Arif - Cybersecurity Portfolio</title>
 
   <!-- Preload hero image -->
   <link rel="preload" as="image" href="rana.jpg">
 
   <link rel="stylesheet" href="style.css"/>
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('portfolio-theme');
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (error) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
-  <!-- Animated background blobs -->
-  <div class="blob b1"></div>
-  <div class="blob b2"></div>
-  <div class="blob b3"></div>
+  <!-- Animated background -->
+  <div class="site-bg" aria-hidden="true">
+    <div class="cyber-grid"></div>
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
 
   <!-- NAV -->
   <nav class="nav">
@@ -47,6 +70,9 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="cta">
+        <button class="icon-btn theme-toggle" id="themeToggle" type="button" title="Toggle theme" aria-label="Toggle dark or light theme">
+          <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
+        </button>
         <a class="btn ghost" id="gmailBtn" role="button" title="Open Gmail compose" aria-label="Send Gmail">
           <i class="fa-regular fa-envelope" aria-hidden="true"></i> Gmail
         </a>
@@ -59,9 +85,15 @@
 
   <!-- HERO -->
   <header class="hero">
+    <div class="hero-particles" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
     <div class="container hero-inner">
-      <img src="rana.jpg" alt="Profile picture of Rana Arif" class="profile-pic" loading="eager" decoding="async">
+      <div class="profile-frame">
+        <img src="rana.jpg" alt="Profile picture of Rana Arif" class="profile-pic" loading="eager" decoding="async">
+      </div>
       <h1 class="title">Muhammad Arif</h1>
+      <p class="hero-kicker">Rana Arif | Cybersecurity + Software Development</p>
       <p class="subtitle"><span id="typing"></span><span class="cursor">|</span></p>
 
       <div class="contact-info">
@@ -76,10 +108,27 @@
     </div>
   </header>
 
+  <aside class="side-dots" id="sideDots" aria-label="Section navigation">
+    <a href="#about" aria-label="About"></a>
+    <a href="#skills" aria-label="Skills"></a>
+    <a href="#projects" aria-label="Projects"></a>
+    <a href="#certifications" aria-label="Certifications"></a>
+    <a href="#contact" aria-label="Contact"></a>
+  </aside>
+
+  <section class="stats-section reveal fade-up" aria-label="Portfolio statistics">
+    <div class="container stats-grid">
+      <article class="stat-card"><strong data-stat="certificates">0</strong><span>Certificates</span></article>
+      <article class="stat-card"><strong data-stat="projects">0</strong><span>Projects</span></article>
+      <article class="stat-card"><strong data-stat="skills">0</strong><span>Skills</span></article>
+      <article class="stat-card"><strong data-stat="tools">0</strong><span>Tools</span></article>
+    </div>
+  </section>
+
   <!-- ABOUT -->
   <section id="about" class="section reveal">
     <div class="container">
-      <h2>About Me</h2>
+      <h2><span>&lt;</span> About Me <span>/&gt;</span></h2>
       <p>I am Muhammad Arif (Rana Arif), a BS Cyber Security student at Emerson University Multan. I am passionate about exploring new technologies, especially in ethical hacking, penetration testing, and secure software development. My curiosity and dedication drive me to find practical solutions to real-world IT challenges.</p>
       <p>Alongside my studies, I build Android applications, experiment with networking tools, and learn frameworks such as Jetpack Compose and Google APIs.</p>
       <p>I regularly take online courses, workshops, and hackathons to enhance my knowledge. With hands-on practice using tools like Nmap, Metasploit, and iTextPDF, I enjoy building solutions that connect cybersecurity and software development.</p>
@@ -90,7 +139,7 @@
   <!-- SKILLS -->
   <section id="skills" class="section alt reveal">
     <div class="container">
-      <h2>💡 Technical Skills</h2>
+      <h2><span>&lt;</span> Technical Skills <span>/&gt;</span></h2>
       <div class="cards">
         <article class="card"><h3>Kotlin & Jetpack Compose</h3><p>Modern Android development with Jetpack libraries.</p></article>
         <article class="card"><h3>Android Studio</h3><p>Official IDE for Android app development.</p></article>
@@ -108,7 +157,7 @@
   <!-- TOOLS -->
   <section id="tools" class="section reveal">
     <div class="container">
-      <h2>🛠️ Tools & Libraries</h2>
+      <h2><span>&lt;</span> Tools & Libraries <span>/&gt;</span></h2>
       <div class="cards">
         <article class="card">
           <h3>Cisco Packet Tracer</h3>
@@ -146,7 +195,7 @@
   <!-- PROJECTS -->
   <section id="projects" class="section reveal">
     <div class="container">
-      <h2><i class="fa-solid fa-shield-halved"></i> Projects</h2>
+      <h2><span>&lt;</span> Projects <span>/&gt;</span></h2>
       <div class="cards project-grid">
         <article class="card project-card clickable" data-title="Attendance, Quiz & Assignment Status" data-desc="A comprehensive platform to track classroom attendance, quizzes, and assignment statuses efficiently." data-skills="Web Development, Database Management">
           <h3 class="project-title">Attendance, Quiz & Assignment Status</h3>
@@ -206,7 +255,7 @@
   <!-- EDUCATION -->
   <section id="education" class="section alt reveal">
     <div class="container">
-      <h2>Education</h2>
+      <h2><span>&lt;</span> Education <span>/&gt;</span></h2>
       <ul class="timeline">
         <li><div class="dot"></div><div class="content">🎓 <strong>BS Cyber Security</strong> – Emerson University Multan <span class="year">(2023–2027)</span> <br><em>Current CGPA: 3.31</em></div></li>
         <li><div class="dot"></div><div class="content">🎓 <strong>FSc Pre-Medical</strong> – Govt. Higher Secondary School Raja Ram <span class="year">(2023)</span></div></li>
@@ -218,7 +267,7 @@
   <!-- CERTIFICATIONS -->
   <section id="certifications" class="section reveal">
     <div class="container">
-      <h2><i class="fa-solid fa-graduation-cap"></i> Certifications</h2>
+      <h2><span>&lt;</span> Certifications <span>/&gt;</span></h2>
       <p class="section-intro">A showcase of my professional certificates, specialized training courses, and academic achievements in cybersecurity, networks, and general information technology.</p>
       
       <!-- Category Filter Tabs -->
@@ -227,6 +276,14 @@
         <button class="filter-btn" data-filter="cybersecurity"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</button>
         <button class="filter-btn" data-filter="networking"><i class="fa-solid fa-network-wired"></i> Networking</button>
         <button class="filter-btn" data-filter="it"><i class="fa-solid fa-laptop-code"></i> IT & Gen Tech</button>
+      </div>
+
+      <div class="cert-toolbar">
+        <label class="search-wrap" for="certSearch">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <input id="certSearch" type="search" placeholder="Search certificates by name, issuer, platform, or category" autocomplete="off">
+        </label>
+        <p class="cert-count" id="certCount" aria-live="polite">Showing certificates</p>
       </div>
 
       <div class="cards cert-grid">
@@ -458,6 +515,30 @@
         </article>
 
         <article class="card cert-card" data-category="it">
+          <h3>Business Process Modeling and Analysis</h3>
+          <p>SAP / Coursera | Completed: 10 Aug 2026 | ID: 2UDIPX49PX2B</p>
+          <div class="cert-img-wrapper">
+            <img src="business_process-1.png" alt="Business Process Modeling and Analysis Certificate" loading="lazy">
+          </div>
+        </article>
+
+        <article class="card cert-card" data-category="it">
+          <h3>SAP Business Analyst Professional Certificate</h3>
+          <p>SAP / Coursera | Completed: 10 Aug 2026 | ID: L2VFI2POHYL3</p>
+          <div class="cert-img-wrapper">
+            <img src="sap_business_analyst-1.png" alt="SAP Business Analyst Professional Certificate" loading="lazy">
+          </div>
+        </article>
+
+        <article class="card cert-card" data-category="it">
+          <h3>Strategic Analysis and Solution Design</h3>
+          <p>SAP / Coursera | Completed: 10 Aug 2026 | ID: 16J38ZL9XWBM</p>
+          <div class="cert-img-wrapper">
+            <img src="strategic_analysis-1.png" alt="Strategic Analysis and Solution Design Certificate" loading="lazy">
+          </div>
+        </article>
+
+        <article class="card cert-card" data-category="it">
           <h3>Introduction to Computers</h3>
           <p>Microsoft / Coursera | Completed: 03 Jul 2026 | ID: HW2PQVU8YWJ7</p>
           <div class="cert-img-wrapper">
@@ -494,7 +575,7 @@
 
   <!-- Certificate Preview Modal -->
   <div id="certModal" class="cert-modal">
-    <span id="closeCert" class="close-btn">&times;</span>
+    <span id="closeCert" class="close-btn" role="button" tabindex="0" aria-label="Close certificate preview">&times;</span>
     <button class="modal-nav prev-btn" id="prevCert" aria-label="Previous Certificate"><i class="fa-solid fa-chevron-left"></i></button>
     <div class="modal-img-container">
       <img id="certModalImg" alt="Certificate Preview">
@@ -505,7 +586,7 @@
 
   <!-- Project Details Modal -->
   <div id="projectModal" class="cert-modal">
-    <span id="closeProjectModal" class="close-btn">&times;</span>
+    <span id="closeProjectModal" class="close-btn" role="button" tabindex="0" aria-label="Close project details">&times;</span>
     <div class="modal-content project-modal-content">
       <h2 id="modalProjectTitle">Project Title</h2>
       <p id="modalProjectDesc">Description goes here.</p>
@@ -517,7 +598,7 @@
   <!-- GOALS -->
   <section id="strengths" class="section reveal">
     <div class="container">
-      <h2>🎯 Career Goals</h2>
+      <h2><span>&lt;</span> Career Goals <span>/&gt;</span></h2>
       <div class="cards">
         <article class="card"><h3>Certified Ethical Hacker (CEH)</h3><p>Aim to achieve CEH certification to strengthen my cybersecurity expertise.</p></article>
         <article class="card"><h3>Master Cybersecurity Tools</h3><p>Gain hands-on experience with advanced penetration testing tools & frameworks.</p></article>
@@ -531,15 +612,19 @@
   <!-- LANGUAGES -->
   <section id="languages" class="section alt reveal">
     <div class="container">
-      <h2>Languages</h2>
-      <p>Urdu (Native), Punjabi (Fluent), English (Intermediate)</p>
+      <h2><span>&lt;</span> Languages <span>/&gt;</span></h2>
+      <div class="language-grid">
+        <article class="card language-card"><h3>Urdu</h3><p>Native</p></article>
+        <article class="card language-card"><h3>Punjabi</h3><p>Fluent</p></article>
+        <article class="card language-card"><h3>English</h3><p>Intermediate</p></article>
+      </div>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact" class="section reveal">
     <div class="container">
-      <h2>Contact Me</h2>
+      <h2><span>&lt;</span> Contact Me <span>/&gt;</span></h2>
       <form id="contactForm" class="contact-form">
         <div class="field"><label for="name">Your Name</label><input id="name" name="name" type="text" placeholder="e.g., Rana Arif" required/></div>
         <div class="field"><label for="email">Your Email</label><input id="email" name="email" type="email" placeholder="e.g., arif@example.com" required/></div>
@@ -547,15 +632,28 @@
         <button type="submit" class="btn primary wide"><i class="fa-regular fa-paper-plane"></i> Send Message</button>
         <p class="form-hint">Feel free to reach out. I will get back to you as soon as possible.</p>
       </form>
+      <div class="contact-actions">
+        <button class="btn ghost copy-btn" type="button" data-copy="ranaarifnoon66@gmail.com"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copy Email</button>
+        <button class="btn ghost copy-btn" type="button" data-copy="+923060830941"><i class="fa-solid fa-phone" aria-hidden="true"></i> Copy Phone</button>
+      </div>
       <div id="toast" class="toast" role="status" aria-live="polite"></div>
     </div>
   </section>
 
   <footer class="footer">
+    <div class="footer-socials" aria-label="Social links">
+      <a href="https://github.com/ranaarifdev" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+      <a href="https://www.linkedin.com/in/muhammad-arif-294a47372" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+      <a href="mailto:ranaarifnoon66@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope" aria-hidden="true"></i></a>
+    </div>
     <p>© <span id="footerYear">2026</span> Muhammad Arif | All Rights Reserved</p>
   </footer>
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="cert-list.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
