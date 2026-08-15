@@ -59,10 +59,11 @@ document.addEventListener('DOMContentLoaded', function () {
   /* Typing Effect */
   const titles = [
     'BS Cyber Security Student',
-    'Android Developer',
     'Cybersecurity Enthusiast',
+    'Android Developer',
     'Network Security Learner',
-    'Ethical Hacking Learner'
+    'Mobile Application Security Engineer',
+    'Android Security Researcher'
   ];
   const typingEl = qs('#typing');
   let titleIndex = 0;
@@ -96,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
     titleIndex++;
     window.setTimeout(typeLoop, 220);
   }
-  typeLoop();
+  window.setTimeout(typeLoop, prefersReducedMotion ? 0 : 650);
 
   /* Smooth scroll and mobile menu */
   const navToggle = qs('#nav-toggle');
@@ -140,7 +141,27 @@ document.addEventListener('DOMContentLoaded', function () {
   /* Reveal animations and active nav */
   const sections = qsa('section[id]');
   const revealElements = qsa('.reveal');
-  const staggerItems = qsa('.cards .card, .timeline li, .language-card');
+  const animationMap = {
+    about: 'blur-in',
+    skills: 'fade-up',
+    tools: 'zoom-in',
+    projects: 'fade-left',
+    education: 'fade-up',
+    certifications: 'zoom-in',
+    strengths: 'rotate-in',
+    contact: 'fade-up'
+  };
+
+  revealElements.forEach(function (el) {
+    const sectionId = el.id;
+    if (sectionId && animationMap[sectionId]) el.classList.add(animationMap[sectionId]);
+  });
+
+  qsa('#projects .project-card').forEach(function (card, index) {
+    card.classList.add(index % 2 === 0 ? 'fade-left' : 'fade-right');
+  });
+
+  const staggerItems = qsa('.skills-grid .card, #tools .cards .card, #certifications .cert-card, .timeline li, .language-card, .goal-card, .about-visual, .about-content > p, .about-info-card, .interest-tags span, .about-actions .btn, .hero-actions .btn, .contact-methods > *, .contact-form .field, .contact-actions .btn');
 
   staggerItems.forEach(function (item, index) {
     item.classList.add('stagger-item');
@@ -164,10 +185,7 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
 
-    revealElements.forEach(function (el, index) {
-      if (index % 4 === 1) el.classList.add('slide-left');
-      if (index % 4 === 2) el.classList.add('slide-right');
-      if (index % 4 === 3) el.classList.add('scale-in');
+    revealElements.forEach(function (el) {
       revealObserver.observe(el);
     });
 
@@ -204,6 +222,22 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   if (precisePointer && !prefersReducedMotion) {
+    const hero = qs('.hero');
+    if (hero) {
+      hero.addEventListener('pointermove', function (event) {
+        const rect = hero.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width - 0.5) * 34;
+        const y = ((event.clientY - rect.top) / rect.height - 0.5) * 28;
+        hero.style.setProperty('--hero-x', x.toFixed(2) + 'px');
+        hero.style.setProperty('--hero-y', y.toFixed(2) + 'px');
+      }, { passive: true });
+
+      hero.addEventListener('pointerleave', function () {
+        hero.style.setProperty('--hero-x', '0px');
+        hero.style.setProperty('--hero-y', '0px');
+      });
+    }
+
     qsa('.card').forEach(function (card) {
       card.classList.add('tilt-card');
       card.addEventListener('pointermove', function (event) {
@@ -369,7 +403,7 @@ document.addEventListener('DOMContentLoaded', function () {
     'Online IT Business': 'fa-solid fa-briefcase'
   };
 
-  qsa('#skills .card, #tools .card, #strengths .card').forEach(function (card) {
+  qsa('#skills .card:not(.skill-card), #tools .card, #strengths .card').forEach(function (card) {
     const heading = qs('h3', card);
     if (!heading || qs('.card-icon', card)) return;
     const icon = document.createElement('i');
@@ -377,6 +411,42 @@ document.addEventListener('DOMContentLoaded', function () {
     icon.setAttribute('aria-hidden', 'true');
     card.insertBefore(icon, heading);
   });
+
+  /* Skill filters */
+  const skillFilters = qsa('.skill-filter');
+  const skillCards = qsa('.skill-card');
+
+  skillFilters.forEach(function (button) {
+    button.addEventListener('click', function () {
+      const filter = button.getAttribute('data-skill-filter') || 'all';
+      skillFilters.forEach(function (item) { item.classList.remove('active'); });
+      button.classList.add('active');
+
+      skillCards.forEach(function (card) {
+        const categories = (card.getAttribute('data-skill-category') || '').split(/\s+/);
+        const visible = filter === 'all' || categories.indexOf(filter) !== -1;
+        card.classList.toggle('hidden', !visible);
+        if (visible && !prefersReducedMotion) {
+          card.animate([
+            { opacity: 0, transform: 'scale(0.96) translateY(10px)' },
+            { opacity: 1, transform: 'scale(1) translateY(0)' }
+          ], { duration: 260, easing: 'cubic-bezier(0.2, 0.8, 0.2, 1)' });
+        }
+      });
+    });
+  });
+
+  const techTrack = qs('.tech-strip-track');
+  if (techTrack && precisePointer && !prefersReducedMotion) {
+    const clones = qsa('span', techTrack).map(function (item) {
+      return item.cloneNode(true);
+    });
+    clones.forEach(function (clone) {
+      clone.setAttribute('aria-hidden', 'true');
+      techTrack.appendChild(clone);
+    });
+    techTrack.classList.add('is-animated');
+  }
 
   /* Certifications */
   (function renderAddedCerts() {
@@ -660,6 +730,107 @@ document.addEventListener('DOMContentLoaded', function () {
   const modalProjectTitle = qs('#modalProjectTitle');
   const modalProjectDesc = qs('#modalProjectDesc');
   const modalProjectSkills = qs('#modalProjectSkills');
+  const projectIconMap = [
+    { match: /attendance|quiz|assignment/i, icon: 'fa-solid fa-clipboard-check' },
+    { match: /cgpa|calculator/i, icon: 'fa-solid fa-calculator' },
+    { match: /roll number|slip/i, icon: 'fa-solid fa-id-card' },
+    { match: /date sheet|schedule/i, icon: 'fa-solid fa-calendar-days' },
+    { match: /honey pot|honeypot/i, icon: 'fa-solid fa-bug' },
+    { match: /mobsf|mobile/i, icon: 'fa-solid fa-mobile-screen-button' },
+    { match: /network scanning|nmap/i, icon: 'fa-solid fa-network-wired' },
+    { match: /penetration/i, icon: 'fa-solid fa-user-secret' },
+    { match: /cisco|packet tracer/i, icon: 'fa-solid fa-diagram-project' },
+    { match: /spyware|malware/i, icon: 'fa-solid fa-shield-virus' }
+  ];
+
+  function projectIconFor(title) {
+    const found = projectIconMap.find(function (item) { return item.match.test(title); });
+    return found ? found.icon : 'fa-solid fa-code';
+  }
+
+  qsa('.project-card.clickable').forEach(function (card) {
+    const title = card.getAttribute('data-title') || qs('.project-title', card)?.textContent || 'Project';
+    const desc = card.getAttribute('data-desc') || '';
+    const skills = (card.getAttribute('data-skills') || '').split(',').map(function (skill) { return skill.trim(); }).filter(Boolean);
+    const github = card.getAttribute('data-github') || '';
+    const demo = card.getAttribute('data-demo') || '';
+    const inProgress = card.classList.contains('active-project') || /in progress/i.test(card.textContent);
+    const status = inProgress ? 'In Progress' : 'Completed / Practice';
+
+    if (!qs('.project-visual', card)) {
+      const visual = document.createElement('div');
+      visual.className = 'project-visual';
+      visual.setAttribute('aria-hidden', 'true');
+      const icon = document.createElement('i');
+      icon.className = projectIconFor(title);
+      visual.appendChild(icon);
+      card.insertBefore(visual, card.firstChild);
+    }
+
+    if (!qs('.project-status', card)) {
+      const statusEl = document.createElement('span');
+      statusEl.className = 'project-status' + (inProgress ? ' in-progress' : '');
+      statusEl.innerHTML = '<span></span>' + status;
+      const category = qs('.project-category', card);
+      if (category) category.insertAdjacentElement('afterend', statusEl);
+    }
+
+    if (desc && !qs('.project-summary', card)) {
+      const summary = document.createElement('p');
+      summary.className = 'project-summary';
+      summary.textContent = desc;
+      const heading = qs('.project-title', card);
+      if (heading) heading.insertAdjacentElement('afterend', summary);
+    }
+
+    if (skills.length && !qs('.project-tech', card)) {
+      const tech = document.createElement('div');
+      tech.className = 'project-tech';
+      skills.slice(0, 4).forEach(function (skill) {
+        const span = document.createElement('span');
+        span.textContent = skill;
+        tech.appendChild(span);
+      });
+      const hint = qs('.click-hint', card);
+      if (hint) card.insertBefore(tech, hint);
+    }
+
+    let actions = qs('.project-actions', card);
+    if (!actions) {
+      actions = document.createElement('div');
+      actions.className = 'project-actions';
+      const details = document.createElement('span');
+      details.className = 'project-action details-action';
+      details.innerHTML = 'View Details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>';
+      actions.appendChild(details);
+
+      if (github) {
+        const link = document.createElement('a');
+        link.className = 'project-action';
+        link.href = github;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.innerHTML = 'GitHub <i class="fa-brands fa-github" aria-hidden="true"></i>';
+        link.addEventListener('click', function (event) { event.stopPropagation(); });
+        actions.appendChild(link);
+      }
+
+      if (demo) {
+        const link = document.createElement('a');
+        link.className = 'project-action';
+        link.href = demo;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.innerHTML = 'Live Demo <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>';
+        link.addEventListener('click', function (event) { event.stopPropagation(); });
+        actions.appendChild(link);
+      }
+
+      const hint = qs('.click-hint', card);
+      if (hint) hint.replaceWith(actions);
+      else card.appendChild(actions);
+    }
+  });
 
   qsa('.project-card.clickable').forEach(function (card) {
     card.setAttribute('tabindex', '0');
