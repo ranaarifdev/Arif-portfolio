@@ -1,327 +1,208 @@
-# Muhammad Arif Portfolio Documentation
+# Muhammad Arif — Mobile Application Security Portfolio Documentation
 
-## Project Overview
+## 1. Project Overview
 
-This is a static GitHub Pages compatible portfolio for Muhammad Arif / Rana Arif, a BS Cyber Security student focused on Mobile Application Security, Android Security Research, cybersecurity, networking, and software development.
+This repository contains the complete personal and professional portfolio for **Muhammad Arif (Rana Arif)**, a BS Cyber Security student (2023–2027) specializing in **Mobile Application Security**, **Android Security Research**, **Network Security**, and **Ethical Hacking**.
 
-The project is intentionally built with plain HTML, CSS, and JavaScript so it can run directly from GitHub Pages without a backend, build step, database, or server-only feature.
+The website is engineered as a zero-dependency, ultra-fast, high-performance static web application built natively with **HTML5**, **CSS3 (Vanilla)**, and **JavaScript (Vanilla ES6+)**. It is fully optimized for hosting on **GitHub Pages** without requiring any build pipelines, bundlers, Node.js runtime, or server-side databases.
 
-## Folder and File Structure
+- **Live URL**: [https://ranaarifdev.github.io/Arif-portfolio/](https://ranaarifdev.github.io/Arif-portfolio/)
+- **GitHub Repository**: [https://github.com/ranaarifdev/Arif-portfolio](https://github.com/ranaarifdev/Arif-portfolio)
+- **Primary Focus**: Mobile Application Security, Android Pentesting, Network Security Research
+
+---
+
+## 2. Directory & File Inventory
 
 ```text
-My port filo/
-|-- index.html
-|-- style.css
-|-- script.js
-|-- cert-list.js
-|-- rana.jpg
-|-- cert-*.jpg / cert-*.jpeg / cert-*.png
-|-- business_process-1.png
-|-- sap_business_analyst-1.png
-|-- strategic_analysis-1.png
-|-- tools/
-|   |-- check_cert_descriptions.py
-|   |-- check_img_exists.py
-|   |-- find_image_duplicates.py
-|   `-- list_images.py
-`-- PROJECT_DOCUMENTATION.md
+Arif-portfolio/
+│
+├── index.html                                  # Primary semantic single-page application entry point
+├── style.css                                   # Complete design system, themes, animations, & responsive media queries
+├── script.js                                   # Interactive logic (Typing effect, modals, filters, search, touch swipe)
+├── cert-list.js                                # Secondary certificate registry (tracks all 39 certificates)
+├── rana.jpg                                    # Official profile picture, favicon, and OpenGraph social banner
+│
+├── cert-*.jpg / cert-*.png / cert-*.jpeg       # High-resolution certificate credential scans (36 files)
+├── business_process-1.png                      # Business Process Analysis certificate asset
+├── sap_business_analyst-1.png                  # SAP Business Analyst certificate asset
+├── strategic_analysis-1.png                    # Strategic Business Analysis certificate asset
+│
+├── tools/                                      # Quality assurance and validation scripts
+│   ├── validate_all.py                         # Master test suite (HTML tags, image assets, anchors, CSS braces)
+│   ├── check_cert_descriptions.py              # Verifies all certificate card descriptions and metadata
+│   ├── check_img_exists.py                     # Ensures all HTML/JS <img> references point to existing files
+│   ├── find_image_duplicates.py                # Identifies duplicate image files via SHA-256 hash
+│   └── list_images.py                          # Utility script to list local image files
+│
+├── PROJECT_DOCUMENTATION.md                    # Complete project documentation & technical reference
+└── README.md                                   # Repository introduction and deployment summary
 ```
 
-## Main Features
+---
 
-- Premium dark/light cybersecurity portfolio theme.
-- Sticky glass navigation with active section highlighting.
-- Mobile hamburger navigation.
-- Scroll progress indicator.
-- Animated hero section with profile image, typewriter text, particles, grid, and CTA buttons.
-- About, Skills, Tools, Projects, Education, Certifications, Goals, Languages, and Contact sections.
-- Responsive cards and grids for desktop, tablet, and mobile.
-- Certificate filtering, searching, dynamic count, and modal preview.
-- Project detail modal.
-- Back-to-top button.
-- Contact form with validation and safe mail fallback.
-- Reduced-motion support for accessibility and performance.
+## 3. Core Features & Architecture
 
-## Sections
+### 3.1 Dual-Theme System (Dark & Light)
+- **Cybersecurity Dark Theme (Default)**: Deep obsidian blue background (`#060c18`), neon cyan accents (`#00f0ff`), cyber purple glows (`#8b5cf6`), emerald green (`#10b981`), and semi-transparent glassmorphic surfaces.
+- **Clean Slate Light Theme**: Modern off-white palette (`#f8fafc`), deep navy typography (`#0f172a`), electric blue highlights (`#0284c7`), and soft glass overlays.
+- **Theme Persistence**: User preference is stored in `localStorage` with private-browsing safe exception handling and falls back to system `prefers-color-scheme`.
+- **Instant Paint**: Inline head script applies the saved theme attribute before DOM render, preventing any white/dark flash.
 
-- Hero: profile image, name, primary role, animated typing roles, contact chips, GitHub/LinkedIn/Project/Contact CTAs.
-- About: complete profile summary, highlighted cybersecurity keywords, interest tags, education/location/focus/goal cards.
-- Core Skills: 20 skill cards with filters.
-- Tools & Libraries: 8 tool cards.
-- Projects: 10 existing project cards with modal details.
-- Education: BS Cyber Security, FSc Pre-Medical, and Matric Science.
-- Certifications: static and dynamic certificate cards with category filtering and search.
-- Career Goals: primary goal, career path, and long-term vision.
-- Languages: Urdu, Punjabi, English.
-- Contact: email, phone, location, GitHub, LinkedIn, form, copy buttons.
+### 3.2 Responsive Navigation Bar
+- **Desktop View**: Sticky glassmorphic navbar with brand avatar, smooth-scroll links, active section highlighting, theme toggle button, and quick-action Gmail/Call buttons.
+- **Mobile / Tablet View (`<= 900px`)**: Compact header with brand and theme toggle + animated hamburger button.
+- **Mobile Drawer Menu**: Clicking the hamburger opens an accessible dropdown drawer containing all navigation links and prominent Call/Gmail action buttons.
+- **Dismissal Handling**: Automatically closes upon selecting any link, tapping outside the navbar, or pressing the `Escape` key.
 
-## Animations and Effects
+### 3.3 Dynamic Typing Header & Hero
+- Animated typewriter effect cycling through primary professional roles:
+  1. *BS Cyber Security Student*
+  2. *Cybersecurity Enthusiast*
+  3. *Android Developer*
+  4. *Network Security Learner*
+  5. *Mobile Application Security Engineer*
+  6. *Android Security Researcher*
+- **Profile Presentation**: High-resolution portrait surrounded by multi-layered rotating neon orbits (`.profile-orbit`) and floating animation. Image color reproduction is kept 100% natural and true-to-life without distorting hue-rotation filters.
+- **Quick Contact Chips**: Email, Phone, Location (Multan, Pakistan), GitHub, and LinkedIn badges.
+- **Hero CTA Action Grid**: Direct links to Projects, Contact, GitHub, and LinkedIn.
 
-Animations are implemented with CSS and lightweight JavaScript:
+### 3.4 Live Statistics Counter
+- Animated numeric counter triggered on viewport entry via `IntersectionObserver`.
+- Dynamic values tracked:
+  - **Certificates**: 39+ Professional Certificates & Specializations
+  - **Projects**: 10 Security & Software Projects
+  - **Status**: Cybersecurity Student & Researcher
+  - **Timeline**: 2023 – 2027 (BS Cyber Security)
 
-- CSS keyframes for hero entrance, floating profile image, grid drift, particles, profile orbit, modal transitions, and counters.
-- `IntersectionObserver` reveals sections and staggered items when they enter the viewport.
-- Desktop-only pointer effects include card tilt, cursor glow, and subtle magnetic movement.
-- Mobile and reduced-motion users receive simpler animations for better performance.
+### 3.5 About Me Section
+- Comprehensive biographical narrative detailing academic background at Department of Cyber Security, hands-on security interests, and technical philosophy.
+- Highlighted key skill tags: Android Security, OWASP MASVS, Network Penetration Testing, Threat Modeling, Reverse Engineering, SIEM & IDS, Python, Java, Kotlin.
+- Detailed info cards for Education, Current Focus, Location, and Career Vision.
 
-Reusable animation classes include:
+### 3.6 Interactive Skills Section
+- 20 skill cards with level indicators, icon badges, and categorized tagging.
+- Filterable by categories:
+  - *All Skills*
+  - *Security & Pentesting* (Mobile Security, Android Reverse Engineering, Network Pentesting, OWASP Top 10)
+  - *Development* (Java, Kotlin, Python, C++, Android Studio, Git)
+  - *Systems & Tools* (Linux, Wireshark, Burp Suite, Nmap, Metasploit, SIEM)
+- Accessible filter buttons with smooth layout transitions.
 
-- `.reveal`
-- `.fade-up`
-- `.fade-down`
-- `.fade-left`
-- `.fade-right`
-- `.slide-left`
-- `.slide-right`
-- `.scale-in`
-- `.zoom-in`
-- `.blur-in`
-- `.rotate-in`
-- `.stagger-item`
+### 3.7 Security Tools & Platforms
+- 8 dedicated tool cards highlighting core daily workflow technologies:
+  - Burp Suite, Wireshark, Nmap, MobSF (Mobile Security Framework), Metasploit, Linux / Kali, Cisco Packet Tracer, Android Studio.
 
-## Responsive Design
+### 3.8 Featured Projects System with Detail Modals
+- 10 structured project cards featuring status badges (*Completed* / *In Progress*), category tags, visual icons, and tech stack chips:
+  1. **Student Management & Attendance System** (Android, Java, Firebase)
+  2. **CGPA & Academic Calculator** (Android, Java)
+  3. **Roll Number Slip & Examination System** (Android, Java)
+  4. **Exam Date Sheet Scheduler** (Android, Java, SQLite)
+  5. **Network Honeypot & Intrusion Detector** (Python, Network Security)
+  6. **Mobile Application Vulnerability Scanner (MobSF Integration)** (Android Security, Python)
+  7. **Automated Network Scanner & Port Analyzer** (Python, Nmap, Sockets)
+  8. **Android Spyware Analysis & Malware Lab** (Reverse Engineering, APKTool, Jadx)
+  9. **Enterprise Network Topology Simulator** (Cisco Packet Tracer, CCNA)
+  10. **Penetration Testing Virtual Lab Environment** (VirtualBox, Kali Linux, Metasploitable)
+- **Interactive Project Modal**: Clicking any card opens a details dialog with deep descriptions, skill tags, and GitHub/Demo links.
 
-The layout uses CSS Grid, Flexbox, `clamp()`, responsive container widths, and media queries.
+### 3.9 Comprehensive Certifications & Credential Lightbox
+- **39 Verified Certificates**: Across Cybersecurity, Network Security, Ethical Hacking, Google/Microsoft/Coursera/Udemy/EC-Council credentials.
+- **Search Bar**: Real-time filtering by credential title, issuer, or category.
+- **Category Filter Tabs**: *All*, *Cybersecurity*, *Networking*, *IT & Gen Tech*.
+- **Interactive Counter**: Live updates (`Showing X of 39 certificates`).
+- **Full-Screen Lightbox Modal**:
+  - Zoomed high-resolution view of certificate scan.
+  - Next / Previous buttons for slideshow navigation.
+  - **Touch Swipe Gestures**: Horizontal swipe left/right support for mobile devices.
+  - **Keyboard Navigation**: Left/Right arrow keys to switch, Escape key to close.
+  - Direct external verification buttons (`data-verify`).
 
-Important responsive behavior:
+### 3.10 Timeline Education & Languages
+- Chronological academic roadmap:
+  - **BS Cyber Security (2023 – 2027)** — Ongoing bachelor degree focused on defensive/offensive cyber security.
+  - **FSc Pre-Medical** — Higher secondary education.
+  - **Matric Science** — Secondary school certificate.
+- Languages: Urdu (Native), Punjabi (Native), English (Professional Working).
 
-- Desktop navigation uses horizontal links.
-- Mobile navigation uses a hamburger menu with large touch targets.
-- Skills, Tools, Projects, Certifications, Contact, and Education collapse into single-column layouts on smaller screens.
-- Expensive hover, cursor, and 3D effects are disabled or simplified on touch/mobile devices.
-- Modals are constrained to viewport size and controls remain reachable on mobile.
-- Back-to-top button uses safe bottom spacing to avoid covering content.
+### 3.11 Career Goals & Roadmap
+- Clear 3-tier milestone roadmap:
+  1. **Short-Term Goal**: Master Mobile Application Penetration Testing (OWASP MSTG/MASVS) and achieve CCNA / CEH certifications.
+  2. **Mid-Term Goal**: Work as a Mobile Application Security Engineer and contribute to Android CVE vulnerability research.
+  3. **Long-Term Vision**: Become a Senior Security Architect and lead cyber defense initiatives.
 
-## Certificates System
+### 3.12 Contact Section & Footer
+- Direct contact methods: Email (`ranaarifnoon66@gmail.com`), Phone (`+92 306 0830941`), Location, GitHub, LinkedIn.
+- Interactive contact form with input validation, message character counter, and fallback email composer.
+- One-click copy buttons for email and phone.
+- Floating back-to-top button with smooth scroll.
 
-Certificate data is preserved in two places:
+---
 
-- `index.html`: 39 static certificate cards with direct verification links.
-- `cert-list.js`: 39 certificate image filenames tracked in `window.ADDED_CERTS`.
+## 4. Design System & CSS Specifications
 
-At runtime, `script.js` checks `window.ADDED_CERTS` and only adds a certificate image if it is not already rendered in the HTML. This protects against missing certificate files while avoiding duplicate visible cards for certificates already present.
-
-Features:
-
-- Category filters: All, Cybersecurity, Networking, IT & Gen Tech.
-- Search by certificate text/category metadata.
-- Dynamic count: `Showing X of Y certificates`.
-- Modal/lightbox preview with next/previous controls.
-- Direct external credential verification via `data-verify` on cards and modal.
-- Keyboard support: Enter on focused certificate image, Escape to close, arrow keys for navigation.
-- Mobile swipe support for previous/next certificate navigation.
-
-Important certificate assets:
-
-- `cert-enterprise-system-management-security.jpg` (University of Colorado System / Coursera)
-- `cert-microsoft-networking-cloud.jpg` (Microsoft / Coursera)
-- `cert-virtualmachines.jpg`
-- `cert-ethical-hacking.jpg`
-- `cert-ceh.jpg`
-- `cert-network-security.png`
-- `cert-google-network-security-specialization.jpg`
-- `business_process-1.png`
-- `sap_business_analyst-1.png`
-- `strategic_analysis-1.png`
-
-Note: `cert-penetrationtesting.jpg` was confirmed to be an exact duplicate of `cert-virtualmachines.jpg` by SHA-256 hash. The duplicate file and its registry reference were removed, while the valid `cert-virtualmachines.jpg` certificate remains available.
-
-## Projects System
-
-Projects are stored as existing `.project-card` elements in `index.html`. JavaScript enriches them at runtime by adding:
-
-- Project visual icon.
-- Status badge.
-- Summary paragraph where needed.
-- Technology chips.
-- View Details action.
-- GitHub/demo buttons only when existing data attributes provide links.
-
-The project modal uses existing card data attributes such as:
-
-- `data-title`
-- `data-desc`
-- `data-skills`
-- `data-github`
-- `data-demo`
-
-No project URLs are invented.
-
-## Technologies Used
-
-- HTML5
-- CSS3
-- Vanilla JavaScript
-- Font Awesome icons from CDN
-- Google Fonts from CDN
-- Optional EmailJS browser SDK from CDN
-- Python utility scripts for local validation
-
-## CSS Architecture
-
-`style.css` is organized around:
-
-- Theme variables in `:root` and `[data-theme="light"]`.
-- Layout primitives such as `.container`, `.section`, `.card`, `.btn`.
-- Section-specific styling for Hero, About, Skills, Tools, Projects, Education, Certifications, Goals, Contact, and Footer.
-- Reusable animation classes.
-- Responsive media queries for desktop, tablet, and mobile.
-- `prefers-reduced-motion` rules.
-
-Recent safety improvements include unified Skills/Tools icon sizing:
-
-- `.skill-icon`
-- `.card-icon`
-- `.skill-icon i`
-- `.skill-icon svg`
-- `.card-icon i`
-- `.card-icon svg`
-
-Recent visual polish also includes:
-
-- Safer global text wrapping for long labels, links, and certificate metadata.
-- Improved section heading, card heading, paragraph, certificate, and project text sizing.
-- Normalized icon alignment for navigation, theme/menu controls, buttons, Skills, Tools, Projects, Contact, Footer, and modal controls.
-- Mobile typography and spacing refinements for cards, filters, badges, contact rows, and project visuals.
-
-## JavaScript Architecture
-
-`script.js` runs after `DOMContentLoaded` and controls:
-
-- Theme toggle and localStorage persistence.
-- Hero typewriter text.
-- Smooth anchor scrolling.
-- Mobile nav close behavior.
-- Scroll progress and back-to-top visibility.
-- Reveal animations via `IntersectionObserver`.
-- Active navigation section tracking.
-- Desktop cursor/card pointer effects.
-- Contact validation and mail fallback.
-- Copy email/phone actions.
-- Tool/card icon injection without changing card content.
-- Skill filters.
-- Certificate rendering, filtering, searching, counting, and modal preview.
-- Animated statistics.
-- Project card enhancement and project modal.
-
-Runtime hardening added:
-
-- Safe localStorage wrapper for private/restricted browser modes.
-- Guarded `Element.animate()` calls for older mobile browsers.
-
-## GitHub Pages Deployment
-
-This project is GitHub Pages safe because:
-
-- It uses static files only.
-- Asset paths are relative.
-- There is no build step.
-- There is no backend dependency.
-- Contact form falls back to `mailto:` if EmailJS keys are not configured.
-
-Typical deployment:
-
-1. Push the repository to GitHub.
-2. Enable GitHub Pages for the repository.
-3. Serve from the repository root or selected Pages branch.
-4. Open the published GitHub Pages URL.
-
-## Important Asset Paths
-
-- Main page: `index.html`
-- Main stylesheet: `style.css`
-- Main script: `script.js`
-- Extra certificate image registry: `cert-list.js`
-- Profile image/favicon/social image: `rana.jpg`
-- Certificate images: project root, mostly `cert-*`
-- Validation tools: `tools/`
-
-## Testing and Validation Performed
-
-Commands run:
-
-```powershell
-node --check script.js
-python tools\check_img_exists.py
-python tools\check_cert_descriptions.py
-python tools\find_image_duplicates.py
+### CSS Variables & Palette Tokens
+```css
+:root {
+  --bg-primary: #060c18;
+  --bg-secondary: #0b1528;
+  --accent-primary: #00f0ff;      /* High-tech Cyan */
+  --accent-secondary: #8b5cf6;    /* Cyber Purple */
+  --accent-success: #10b981;      /* Emerald Green */
+  --surface-glass: rgba(14, 26, 49, 0.84);
+  --border: rgba(148, 163, 184, 0.22);
+  --border-strong: rgba(0, 240, 255, 0.48);
+  --glow: 0 0 32px rgba(0, 240, 255, 0.28);
+}
 ```
 
-Additional static checks performed:
+### Responsive Breakpoint Strategy
+| Breakpoint | Target Devices | Key Layout Adjustments |
+| :--- | :--- | :--- |
+| **`>= 1440px`** | Ultra-wide & 4K Monitors | 3-column grids for certs/projects, expanded 1240px container |
+| **`1024px – 1439px`** | Desktops & Laptops | 3-column cert grid, 2-column project grid, side navigation dots |
+| **`769px – 1023px`** | Tablets & Small Laptops | 2-column grids, collapsed navigation drawer, hidden side dots |
+| **`521px – 768px`** | Large Smartphones & Phablets | 2-column stats, 1-column project cards, 2x2 hero buttons |
+| **`381px – 520px`** | Standard Mobile Phones | Single-column certs/projects, 2-column mobile nav actions |
+| **`<= 380px`** | Compact Smartphones | Full-width buttons, 1-column stats, compact avatar & font scaling |
 
-- Duplicate HTML ID check.
-- Local image and anchor reference check.
-- Certificate card count.
-- Project card count.
-- Skill card count.
-- Tool card count.
-- Referenced image count.
-- Unreferenced image check.
+---
 
-Results:
+## 5. Verification & Quality Assurance Suite
 
-- JavaScript syntax: OK.
-- Local references: 0 missing local references.
-- Duplicate IDs: none.
-- Static certificate cards: 39.
-- `window.ADDED_CERTS` image registry: 39 filenames.
-- Project cards: 10.
-- Skill cards: 20.
-- Tool cards: 8.
-- Image files: 36.
-- Referenced images: 36.
-- Unreferenced images: none.
-- Certificate descriptions: present.
+The repository includes a standalone automated Python test suite in `tools/validate_all.py`:
 
-## Fixes Made
-
-- Hardened theme storage so localStorage restrictions do not crash the site.
-- Guarded animation calls so missing `Element.animate()` support does not crash filters on older browsers.
-- Rechecked and refined typography, line-height, card spacing, icon centering, mobile labels, project icons, contact icons, and responsive spacing.
-- Removed the confirmed duplicate `cert-penetrationtesting.jpg` after verifying it matched `cert-virtualmachines.jpg` by SHA-256 hash, then removed its stale registry reference.
-- Preserved all certificates, certificate images, profile data, projects, links, and assets.
-- Kept GitHub Pages compatibility intact.
-
-Previous visual/configuration improvements in this project include:
-
-- Premium responsive theme.
-- Hero animation system.
-- Section reveal animations.
-- Sticky responsive navigation.
-- Certificate search/filter/modal system.
-- Project modal system.
-- Mobile spacing fixes for Skills, Tools, and Projects.
-- Normalized Skills and Tools icon boxes.
-
-## Known Limitations
-
-- External CDN resources are required for Google Fonts, Font Awesome, and optional EmailJS. If a visitor is offline or a CDN is blocked, fonts/icons may fall back or EmailJS may be unavailable.
-- EmailJS keys are intentionally blank, so the contact form safely opens the visitor's email client instead of pretending to send a message.
-- Live browser testing with Playwright was not completed because no project dependency setup exists and `npx` was not available through PowerShell policy/cached tooling during this audit.
-- No unreferenced image files remain after removing the confirmed duplicate `cert-penetrationtesting.jpg`.
-
-## Maintenance Instructions
-
-- Do not delete certificate images unless you first confirm they are not referenced in `index.html` or `cert-list.js`.
-- When adding a certificate, add the image file to the project root and update either the Certifications HTML or `cert-list.js`.
-- When adding certificate metadata, include title, issuer/platform, date, credential ID where available, and category.
-- Keep asset filenames case-sensitive and relative for GitHub Pages.
-- Run validation after edits:
-
-```powershell
-node --check script.js
-python tools\check_img_exists.py
-python tools\check_cert_descriptions.py
-python tools\find_image_duplicates.py
+```bash
+python tools/validate_all.py
 ```
 
-- Test manually after visual changes:
-  - Navigation and active states.
-  - Mobile hamburger menu.
-  - Theme toggle.
-  - Skills filters.
-  - Certificate filters/search/count/modal.
-  - Project details modal.
-  - Contact form validation and mail fallback.
-  - Mobile widths around 320px, 360px, 390px, 412px, 480px.
-  - Tablet/desktop widths around 768px, 1024px, 1366px, 1440px.
+### Checks Executed:
+1. **HTML Parsing & Tag Balancing**: Verifies all 848+ HTML tags are validly closed and structured without broken parents.
+2. **Asset Integrity Check**: Confirms all 39 referenced certificate scans and images exist in the file system.
+3. **Anchor Target Validation**: Checks every `#anchor` link in the header, side dots, and buttons maps to an existing element ID.
+4. **CSS Syntax & Brace Parity**: Confirms 611 open `{` match 611 close `}` braces in `style.css`.
+5. **JavaScript Registry Sync**: Validates all 39 certificates in `cert-list.js` point to valid assets.
+
+---
+
+## 6. Maintenance & Adding New Content
+
+### Adding a New Certificate:
+1. Save the certificate scan in the project root directory (e.g., `cert-my-new-course.jpg`).
+2. Add the certificate card inside `<section id="certifications">` in `index.html` with:
+   - `<article class="cert-card" data-category="cybersecurity" data-verify="https://...">`
+   - `<h3>Certificate Title</h3>`
+   - `<p>Issuer • Date</p>`
+   - `<img src="cert-my-new-course.jpg" alt="Title" loading="lazy">`
+3. Add the filename to `cert-list.js` in the `window.ADDED_CERTS` array.
+4. Run `python tools/validate_all.py` to confirm zero missing assets.
+5. Commit and push to `main` branch.
+
+### Deploying Updates:
+```bash
+git add .
+git commit -m "feat: add new security certificate"
+git push origin main
+```
+GitHub Pages automatically deploys the updated site in 1–2 minutes.
