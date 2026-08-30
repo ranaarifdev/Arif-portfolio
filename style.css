@@ -3303,9 +3303,9 @@ textarea:not(:placeholder-shown) + label {
   .hero-particles span:nth-child(n+5) {
     display: none;
   }
-  .contact-info { gap: 8px; }
-  .chip { width: 100%; justify-content: center; }
-  .hero-actions .btn { flex: 1 1 100%; }
+  .contact-info { gap: 8px; justify-content: center; }
+  .chip { width: auto; max-width: 100%; justify-content: center; }
+  .hero-actions .btn { flex: 1 1 calc(50% - 8px); min-width: 130px; }
   .section { padding: 48px 0; }
   .section p { font-size: 0.96rem; line-height: 1.68; }
   h2 {
@@ -3551,6 +3551,9 @@ textarea:not(:placeholder-shown) + label {
   .contact-panel,
   .contact-form {
     padding: 14px;
+  }
+  .hero-actions .btn {
+    flex: 1 1 100%;
   }
   input,
   textarea {

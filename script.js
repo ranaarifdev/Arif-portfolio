@@ -117,13 +117,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* Smooth scroll and mobile menu */
   const navToggle = qs('#nav-toggle');
+  const navMenuButton = qs('.hamburger');
   const navLinks = qsa('.nav .links a');
   const sideDots = qsa('.side-dots a');
   let lastFocusedBeforeModal = null;
 
   if (navToggle) {
     navToggle.addEventListener('change', function () {
-      navToggle.setAttribute('aria-expanded', navToggle.checked ? 'true' : 'false');
+      const expanded = navToggle.checked ? 'true' : 'false';
+      navToggle.setAttribute('aria-expanded', expanded);
+      if (navMenuButton) navMenuButton.setAttribute('aria-expanded', expanded);
+    });
+  }
+
+  if (navMenuButton && navToggle) {
+    navMenuButton.addEventListener('keydown', function (event) {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      navMenuButton.click();
     });
   }
 
@@ -143,6 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (navToggle) {
         navToggle.checked = false;
         navToggle.setAttribute('aria-expanded', 'false');
+        if (navMenuButton) navMenuButton.setAttribute('aria-expanded', 'false');
       }
     });
   });
@@ -152,8 +164,30 @@ document.addEventListener('DOMContentLoaded', function () {
       if (navToggle) {
         navToggle.checked = false;
         navToggle.setAttribute('aria-expanded', 'false');
+        if (navMenuButton) navMenuButton.setAttribute('aria-expanded', 'false');
       }
     });
+  });
+
+  /* Close mobile menu when clicking outside */
+  document.addEventListener('click', function (event) {
+    if (navToggle && navToggle.checked) {
+      const isClickInsideNav = event.target.closest('.nav');
+      if (!isClickInsideNav) {
+        navToggle.checked = false;
+        navToggle.setAttribute('aria-expanded', 'false');
+        if (navMenuButton) navMenuButton.setAttribute('aria-expanded', 'false');
+      }
+    }
+  });
+
+  /* Close mobile menu on Escape key */
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && navToggle && navToggle.checked) {
+      navToggle.checked = false;
+      navToggle.setAttribute('aria-expanded', 'false');
+      if (navMenuButton) navMenuButton.setAttribute('aria-expanded', 'false');
+    }
   });
 
   /* Scroll progress and back-to-top */
