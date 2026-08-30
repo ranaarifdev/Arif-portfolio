@@ -13,7 +13,7 @@
   <meta name="twitter:title" content="Muhammad Arif - Mobile Application Security Portfolio"/>
   <meta name="twitter:description" content="Mobile application security and Android security research portfolio of Muhammad Arif (Rana Arif)."/>
   <meta name="twitter:image" content="rana.jpg"/>
-  <meta name="theme-color" content="#0b1020"/>
+  <meta name="theme-color" id="themeColor" content="#0b1020"/>
   <link rel="canonical" href="./"/>
   <link rel="icon" href="rana.jpg"/>
   <title>Muhammad Arif - Mobile Application Security Portfolio</title>
@@ -24,13 +24,9 @@
   <link rel="stylesheet" href="style.css"/>
   <script>
     (function () {
-      try {
-        var saved = localStorage.getItem('portfolio-theme');
-        var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-        document.documentElement.setAttribute('data-theme', theme);
-      } catch (error) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
+      var theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'light' ? '#f8fafc' : '#0b1020');
     })();
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">

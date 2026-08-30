@@ -21,35 +21,37 @@ document.addEventListener('DOMContentLoaded', function () {
     body.classList.toggle('modal-open', Boolean(open));
   }
 
-  function getStoredValue(key) {
-    try {
-      return window.localStorage ? localStorage.getItem(key) : null;
-    } catch (error) {
-      return null;
-    }
-  }
-
-  function setStoredValue(key, value) {
-    try {
-      if (window.localStorage) localStorage.setItem(key, value);
-    } catch (error) {
-      /* Ignore storage errors in private or restricted browser modes. */
-    }
-  }
-
   /* Theme */
   const themeToggle = qs('#themeToggle');
-  const savedTheme = getStoredValue('portfolio-theme');
-  if (savedTheme === 'light' || savedTheme === 'dark') {
-    document.documentElement.setAttribute('data-theme', savedTheme);
+  const themeColor = qs('#themeColor');
+  const systemTheme = window.matchMedia('(prefers-color-scheme: light)');
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    if (themeColor) themeColor.setAttribute('content', theme === 'light' ? '#f8fafc' : '#0b1020');
+    if (themeToggle) {
+      const nextTheme = theme === 'light' ? 'dark' : 'light';
+      themeToggle.setAttribute('aria-label', 'Switch to ' + nextTheme + ' theme');
+      themeToggle.setAttribute('title', 'Switch to ' + nextTheme + ' theme');
+    }
+  }
+
+  applyTheme(systemTheme.matches ? 'light' : 'dark');
+
+  function syncSystemTheme(event) {
+    applyTheme(event.matches ? 'light' : 'dark');
+  }
+
+  if (typeof systemTheme.addEventListener === 'function') {
+    systemTheme.addEventListener('change', syncSystemTheme);
+  } else if (typeof systemTheme.addListener === 'function') {
+    systemTheme.addListener(syncSystemTheme);
   }
 
   if (themeToggle) {
     themeToggle.addEventListener('click', function () {
       const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-      const next = current === 'light' ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-theme', next);
-      setStoredValue('portfolio-theme', next);
+      applyTheme(current === 'light' ? 'dark' : 'light');
     });
   }
 
