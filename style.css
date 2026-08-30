@@ -3211,6 +3211,7 @@ textarea:not(:placeholder-shown) + label {
   .hamburger { display: grid; }
   .nav-inner { min-height: 62px; }
   .cta { margin-left: auto; }
+  .cta .header-cta-btn { display: none; }
   .links {
     position: absolute;
     top: calc(100% + 10px);
