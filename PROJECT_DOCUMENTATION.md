@@ -96,8 +96,8 @@ Important responsive behavior:
 
 Certificate data is preserved in two places:
 
-- `index.html`: 37 static certificate cards with direct verification links.
-- `cert-list.js`: 37 certificate image filenames tracked in `window.ADDED_CERTS`.
+- `index.html`: 39 static certificate cards with direct verification links.
+- `cert-list.js`: 39 certificate image filenames tracked in `window.ADDED_CERTS`.
 
 At runtime, `script.js` checks `window.ADDED_CERTS` and only adds a certificate image if it is not already rendered in the HTML. This protects against missing certificate files while avoiding duplicate visible cards for certificates already present.
 
@@ -263,8 +263,8 @@ Results:
 - JavaScript syntax: OK.
 - Local references: 0 missing local references.
 - Duplicate IDs: none.
-- Static certificate cards: 35.
-- `window.ADDED_CERTS` image registry: 35 filenames.
+- Static certificate cards: 39.
+- `window.ADDED_CERTS` image registry: 39 filenames.
 - Project cards: 10.
 - Skill cards: 20.
 - Tool cards: 8.

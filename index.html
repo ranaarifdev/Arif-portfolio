@@ -58,7 +58,7 @@
         <span>Muhammad Arif</span>
       </div>
       <input type="checkbox" id="nav-toggle" aria-label="Toggle navigation menu" aria-controls="primaryNavigation" aria-expanded="false">
-      <label for="nav-toggle" class="hamburger" aria-label="Open menu"><i class="fa fa-bars"></i></label>
+      <label for="nav-toggle" class="hamburger" role="button" tabindex="0" aria-label="Open menu" aria-controls="primaryNavigation" aria-expanded="false"><i class="fa fa-bars"></i></label>
       <ul class="links" id="primaryNavigation">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -81,12 +81,12 @@
         <button class="icon-btn theme-toggle" id="themeToggle" type="button" title="Toggle theme" aria-label="Toggle dark or light theme">
           <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
         </button>
-        <a class="btn ghost header-cta-btn" id="gmailBtn" role="button" title="Open Gmail compose" aria-label="Send Gmail">
+        <button class="btn ghost header-cta-btn" id="gmailBtn" type="button" title="Open Gmail compose" aria-label="Send Gmail">
           <i class="fa-regular fa-envelope" aria-hidden="true"></i> Gmail
-        </a>
-        <a class="btn primary header-cta-btn" id="callBtn" role="button" title="Call now" aria-label="Call Muhammad Arif">
+        </button>
+        <button class="btn primary header-cta-btn" id="callBtn" type="button" title="Call now" aria-label="Call Muhammad Arif">
           <i class="fa-solid fa-phone" aria-hidden="true"></i> Call
-        </a>
+        </button>
       </div>
     </div>
   </nav>
