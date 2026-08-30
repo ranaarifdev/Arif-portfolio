@@ -54,12 +54,17 @@
   <nav class="nav">
     <div class="nav-inner">
       <div class="brand">
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">
         <img src="rana.jpg" alt="Rana Arif" class="brand-pic">
         <span>Muhammad Arif</span>
       </div>
-      <input type="checkbox" id="nav-toggle" aria-label="Toggle navigation menu">
+      <input type="checkbox" id="nav-toggle" aria-label="Toggle navigation menu" aria-controls="primaryNavigation" aria-expanded="false">
       <label for="nav-toggle" class="hamburger" aria-label="Open menu"><i class="fa fa-bars"></i></label>
-      <ul class="links">
+      <ul class="links" id="primaryNavigation">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#tools">Tools</a></li>
@@ -68,15 +73,23 @@
         <li><a href="#certifications">Certifications</a></li>
         <li><a href="#strengths">Goals</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li class="mobile-nav-actions">
+          <a class="btn ghost mobile-action-btn" href="mailto:ranaarifnoon66@gmail.com" title="Send Email">
+            <i class="fa-regular fa-envelope" aria-hidden="true"></i> Gmail
+          </a>
+          <a class="btn primary mobile-action-btn" href="tel:+923060830941" title="Call Now">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i> Call
+          </a>
+        </li>
       </ul>
       <div class="cta">
         <button class="icon-btn theme-toggle" id="themeToggle" type="button" title="Toggle theme" aria-label="Toggle dark or light theme">
           <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
         </button>
-        <a class="btn ghost" id="gmailBtn" role="button" title="Open Gmail compose" aria-label="Send Gmail">
+        <a class="btn ghost header-cta-btn" id="gmailBtn" role="button" title="Open Gmail compose" aria-label="Send Gmail">
           <i class="fa-regular fa-envelope" aria-hidden="true"></i> Gmail
         </a>
-        <a class="btn primary" id="callBtn" role="button" title="Call now" aria-label="Call Muhammad Arif">
+        <a class="btn primary header-cta-btn" id="callBtn" role="button" title="Call now" aria-label="Call Muhammad Arif">
           <i class="fa-solid fa-phone" aria-hidden="true"></i> Call
         </a>
       </div>
@@ -123,81 +136,81 @@
   <aside class="side-dots" id="sideDots" aria-label="Section navigation">
     <a href="#about" aria-label="About"></a>
     <a href="#skills" aria-label="Skills"></a>
+    <a href="#tools" aria-label="Tools"></a>
     <a href="#projects" aria-label="Projects"></a>
+    <a href="#education" aria-label="Education"></a>
     <a href="#certifications" aria-label="Certifications"></a>
+    <a href="#strengths" aria-label="Goals"></a>
     <a href="#contact" aria-label="Contact"></a>
   </aside>
 
   <section class="stats-section reveal fade-up" aria-label="Portfolio statistics">
     <div class="container stats-grid">
-      <article class="stat-card"><strong data-stat="certificates">0</strong><span>Certificates</span></article>
-      <article class="stat-card"><strong data-stat="projects">0</strong><span>Projects</span></article>
-      <article class="stat-card"><strong data-stat="skills">0</strong><span>Skills</span></article>
-      <article class="stat-card"><strong data-stat="tools">0</strong><span>Tools</span></article>
+      <article class="stat-card"><i class="fa-solid fa-award" aria-hidden="true"></i><strong data-stat="certificates">0</strong><span>Certificates</span></article>
+      <article class="stat-card"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i><strong data-stat="projects">0</strong><span>Projects</span></article>
+      <article class="stat-card"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i><strong>Cybersecurity</strong><span>Student</span></article>
+      <article class="stat-card"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i><strong>2023-2027</strong><span>BS Cyber Security</span></article>
     </div>
   </section>
 
   <!-- ABOUT -->
   <section id="about" class="section reveal">
     <div class="container about-shell">
-      <div class="about-visual scale-in">
-        <div class="about-photo-frame">
-          <img src="rana.jpg" alt="Muhammad Arif profile portrait" loading="lazy" decoding="async">
-        </div>
-        <div class="about-mini-card">
-          <span>Mobile Security + Android Research</span>
-          <strong>Muhammad Arif</strong>
-          <p>BS Cyber Security student based in Multan, Pakistan.</p>
-        </div>
-      </div>
-
       <div class="about-content fade-up">
+        <div class="about-status-badge">
+          <span class="status-pulse" aria-hidden="true"></span>
+          <span>Security Researcher & Mobile App Security Engineer</span>
+        </div>
         <h2><i class="fa-solid fa-user-shield section-icon" aria-hidden="true"></i><span>&lt;</span> About Me <span>/&gt;</span></h2>
-        <p class="about-lead">I'm Muhammad Arif (Rana Arif), a BS <mark>Cyber Security</mark> student at Emerson University Multan with a primary goal of becoming a <mark>Mobile Application Security Engineer</mark> and <mark>Android Security Researcher</mark>. I also have a strong interest in cybersecurity, <mark>Ethical Hacking</mark>, <mark>Network Security</mark>, <mark>Android Development</mark>, and <mark>Secure Software Development</mark>.</p>
-        <p>I enjoy exploring new technologies and turning what I learn into practical projects. Alongside my studies, I work with Android development, networking tools, security testing environments, and technologies such as <mark>Kotlin</mark>, <mark>Jetpack Compose</mark>, Nmap, Wireshark, and other cybersecurity tools.</p>
-        <p>I continuously improve my skills through online courses, hands-on labs, certifications, workshops, and personal projects. My goal is to develop strong practical experience in cybersecurity while also improving my software development and problem-solving abilities.</p>
-        <p>In the future, I aim to grow into a mobile application security professional, contribute to real-world Android and application security projects, mentor others, and build technology solutions that combine cybersecurity, software development, and entrepreneurship.</p>
+        <p class="about-lead">I am <strong>Muhammad Arif (Rana Arif)</strong>, a dedicated <mark>BS Cyber Security</mark> student at Emerson University Multan (2023–2027) with a clear career objective of becoming a <mark>Mobile Application Security Engineer</mark> and <mark>Android Security Researcher</mark>. My technical passion lies at the intersection of mobile defense, vulnerability assessment, ethical hacking, and secure software development.</p>
+        <p>I combine practical hands-on security testing with software engineering fundamentals. Alongside my academic coursework, I actively research Android platform internals, static & dynamic APK security analysis, malware behavior indicators, network protocols, and reverse engineering. I work extensively with tools and environments including <mark>MobSF</mark>, <mark>Nmap</mark>, <mark>Wireshark</mark>, <mark>Kali Linux</mark>, <mark>Kotlin</mark>, and <mark>Jetpack Compose</mark>.</p>
+        <p>Through comprehensive online certifications, hands-on virtual security labs, and personal development projects, I continually sharpen my capabilities in identifying application flaws, assessing threat vectors, and building defensive solutions. My ultimate goal is to contribute to real-world application security ecosystems, author impactful mobile vulnerability research, and build resilient software systems.</p>
 
         <aside class="about-highlight">
           <i class="fa-solid fa-quote-left" aria-hidden="true"></i>
-          <p>Focused on practical cybersecurity learning, Android security research, ethical hacking labs, networking fundamentals, and secure software development.</p>
+          <p>Committed to rigorous hands-on cybersecurity research, Android application hardening, defensive network architecture, and continuous learning.</p>
         </aside>
 
         <div class="about-info-grid">
           <article class="about-info-card">
             <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
             <span>Education</span>
-            <strong>BS Cyber Security</strong>
+            <strong>BS Cyber Security (2023–2027)</strong>
+            <small>Emerson University Multan • CGPA 3.31</small>
           </article>
           <article class="about-info-card">
             <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
             <span>Location</span>
             <strong>Multan, Pakistan</strong>
+            <small>Open to Remote & Global Roles</small>
           </article>
           <article class="about-info-card">
             <i class="fa-solid fa-laptop-code" aria-hidden="true"></i>
-            <span>Focus</span>
-            <strong>Mobile App Security & Android Research</strong>
+            <span>Core Focus</span>
+            <strong>Mobile & Android Security</strong>
+            <small>APK Testing, Malware & Reverse Engineering</small>
           </article>
           <article class="about-info-card">
-            <i class="fa-solid fa-rocket" aria-hidden="true"></i>
-            <span>Goal</span>
-            <strong>Mobile Application Security Engineer</strong>
+            <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+            <span>Target Role</span>
+            <strong>Mobile App Security Engineer</strong>
+            <small>Android Security Researcher / Analyst</small>
           </article>
         </div>
 
         <div class="interest-block">
-          <h3>Areas I'm Interested In</h3>
+          <h3>Core Technical Domains & Interests</h3>
           <div class="interest-tags">
-            <span>Cybersecurity</span>
-            <span>Ethical Hacking</span>
-            <span>Network Security</span>
-            <span>Penetration Testing</span>
-            <span>Android Development</span>
-            <span>Mobile Application Security</span>
-            <span>Android Security Research</span>
-            <span>Secure Software</span>
-            <span>Networking</span>
+            <span><i class="fa-solid fa-shield-halved"></i> Cybersecurity</span>
+            <span><i class="fa-brands fa-android"></i> Android Security Research</span>
+            <span><i class="fa-solid fa-mobile-screen"></i> Mobile App Security</span>
+            <span><i class="fa-solid fa-bug"></i> Malware Analysis</span>
+            <span><i class="fa-solid fa-user-secret"></i> Ethical Hacking</span>
+            <span><i class="fa-solid fa-magnifying-glass"></i> Penetration Testing</span>
+            <span><i class="fa-solid fa-network-wired"></i> Network Security</span>
+            <span><i class="fa-brands fa-linux"></i> Kali Linux Labs</span>
+            <span><i class="fa-solid fa-code"></i> Kotlin & Jetpack Compose</span>
+            <span><i class="fa-solid fa-lock"></i> Secure Architecture</span>
           </div>
         </div>
 
@@ -213,106 +226,198 @@
   <!-- SKILLS -->
   <section id="skills" class="section alt reveal">
     <div class="container">
-      <h2><span>&lt;</span> Technical Skills <span>/&gt;</span></h2>
-      <p class="section-intro skills-intro">Technologies and technical skills I use for cybersecurity, networking, software development, and everyday technical work.</p>
+      <h2><span>&lt;</span> Core Skills <span>/&gt;</span></h2>
+      <p class="section-intro skills-intro">Core technical and professional skills focused on mobile security, Android research, network defense, testing, and clear reporting.</p>
 
       <div class="skill-filters" aria-label="Skill category filters">
         <button class="skill-filter active" type="button" data-skill-filter="all">All</button>
         <button class="skill-filter" type="button" data-skill-filter="cybersecurity">Cybersecurity</button>
         <button class="skill-filter" type="button" data-skill-filter="networking">Networking</button>
-        <button class="skill-filter" type="button" data-skill-filter="development">Development</button>
-        <button class="skill-filter" type="button" data-skill-filter="android">Android</button>
-        <button class="skill-filter" type="button" data-skill-filter="productivity">Productivity</button>
+        <button class="skill-filter" type="button" data-skill-filter="mobile">Mobile Security</button>
+        <button class="skill-filter" type="button" data-skill-filter="testing">Testing</button>
+        <button class="skill-filter" type="button" data-skill-filter="tools">Tools</button>
+        <button class="skill-filter" type="button" data-skill-filter="professional">Professional</button>
       </div>
 
       <div class="skills-grid">
-        <article class="card skill-card core-focus" data-skill-category="android development">
-          <i class="skill-icon fa-brands fa-android" aria-hidden="true"></i>
-          <span class="skill-category">Android Development</span>
-          <h3>Kotlin & Jetpack Compose</h3>
-          <p>Modern Android application development using Kotlin, Jetpack Compose, and Jetpack libraries.</p>
-          <div class="skill-meta"><span>Hands-on</span><span>Core Focus</span></div>
-        </article>
-
-        <article class="card skill-card core-focus" data-skill-category="android development">
-          <i class="skill-icon fa-brands fa-android" aria-hidden="true"></i>
-          <span class="skill-category">Android Development</span>
-          <h3>Android Studio</h3>
-          <p>Official IDE for Android development, project setup, testing, debugging, and app building.</p>
-          <div class="skill-meta"><span>Hands-on</span><span>Core Focus</span></div>
-        </article>
-
-        <article class="card skill-card" data-skill-category="development">
-          <i class="skill-icon fa-brands fa-python" aria-hidden="true"></i>
-          <span class="skill-category">Development</span>
-          <h3>Python (Basic)</h3>
-          <p>Learning Python fundamentals for automation, scripting, and cybersecurity practice.</p>
-          <div class="skill-meta"><span>Basic</span><span>Learning</span></div>
-        </article>
-
-        <article class="card skill-card" data-skill-category="development">
-          <i class="skill-icon fa-solid fa-code" aria-hidden="true"></i>
-          <span class="skill-category">Development</span>
-          <h3>HTML, CSS, JavaScript</h3>
-          <p>Web development fundamentals for building responsive layouts and interactive front-end experiences.</p>
-          <div class="skill-meta"><span>Hands-on</span></div>
-        </article>
-
-        <article class="card skill-card core-focus" data-skill-category="networking">
-          <i class="skill-icon fa-solid fa-network-wired" aria-hidden="true"></i>
-          <span class="skill-category">Networking</span>
-          <h3>Computer Networking</h3>
-          <p>Knowledge of IP, DNS, ports, firewalls, and network troubleshooting concepts.</p>
-          <div class="skill-meta"><span>Hands-on</span><span>Core Focus</span></div>
-        </article>
-
         <article class="card skill-card core-focus" data-skill-category="cybersecurity">
           <i class="skill-icon fa-solid fa-shield-halved" aria-hidden="true"></i>
           <span class="skill-category">Cybersecurity</span>
-          <h3>Cybersecurity Basics</h3>
-          <p>Understanding of ethical hacking concepts, system security, and practical security fundamentals.</p>
-          <div class="skill-meta"><span>Learning</span><span>Core Focus</span></div>
+          <h3>Cybersecurity</h3>
+          <p>Understanding security concepts, defensive thinking, risk awareness, and practical protection methods.</p>
+          <div class="skill-meta"><span>Core Skill</span></div>
         </article>
 
-        <article class="card skill-card core-focus" data-skill-category="cybersecurity networking">
-          <i class="skill-icon fa-solid fa-terminal" aria-hidden="true"></i>
-          <span class="skill-category">Cybersecurity</span>
-          <h3>Nmap, Metasploit, Linux</h3>
-          <p>Hands-on practice with penetration testing tools, Linux environments, scanning, and lab workflows.</p>
-          <div class="skill-meta"><span>Hands-on Practice</span><span>Core Focus</span></div>
+        <article class="card skill-card core-focus" data-skill-category="networking cybersecurity">
+          <i class="skill-icon fa-solid fa-network-wired" aria-hidden="true"></i>
+          <span class="skill-category">Network Security</span>
+          <h3>Network Security</h3>
+          <p>Securing networks through knowledge of IP, DNS, ports, firewalls, monitoring, and traffic behavior.</p>
+          <div class="skill-meta"><span>Core Skill</span></div>
         </article>
 
-        <article class="card skill-card" data-skill-category="productivity">
-          <i class="skill-icon fa-solid fa-file-word" aria-hidden="true"></i>
-          <span class="skill-category">Productivity</span>
-          <h3>MS Office</h3>
-          <p>Proficiency in Word, Excel, and PowerPoint for documentation, reports, and presentations.</p>
-          <div class="skill-meta"><span>Productivity</span></div>
+        <article class="card skill-card core-focus" data-skill-category="mobile cybersecurity">
+          <i class="skill-icon fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
+          <span class="skill-category">Mobile Security</span>
+          <h3>Mobile Application Security</h3>
+          <p>Focused study of mobile app risks, secure app behavior, permission abuse, and application hardening.</p>
+          <div class="skill-meta"><span>Primary Focus</span></div>
         </article>
 
-        <article class="card skill-card" data-skill-category="productivity development">
-          <i class="skill-icon fa-brands fa-github" aria-hidden="true"></i>
-          <span class="skill-category">Workflow</span>
-          <h3>Git & GitHub</h3>
-          <p>Version control and project collaboration using Git workflows and GitHub repositories.</p>
+        <article class="card skill-card core-focus" data-skill-category="mobile cybersecurity">
+          <i class="skill-icon fa-brands fa-android" aria-hidden="true"></i>
+          <span class="skill-category">Android Security</span>
+          <h3>Android Security</h3>
+          <p>Analyzing Android platform behavior, app permissions, secure storage, and mobile attack surfaces.</p>
+          <div class="skill-meta"><span>Primary Focus</span></div>
+        </article>
+
+        <article class="card skill-card core-focus" data-skill-category="mobile cybersecurity">
+          <i class="skill-icon fa-solid fa-shield-virus" aria-hidden="true"></i>
+          <span class="skill-category">Malware Analysis</span>
+          <h3>Android Malware Analysis</h3>
+          <p>Studying suspicious Android applications, malicious behavior, indicators, and mobile threat patterns.</p>
+          <div class="skill-meta"><span>Research Focus</span></div>
+        </article>
+
+        <article class="card skill-card core-focus" data-skill-category="testing cybersecurity">
+          <i class="skill-icon fa-solid fa-bug" aria-hidden="true"></i>
+          <span class="skill-category">Assessment</span>
+          <h3>Vulnerability Assessment</h3>
+          <p>Identifying, reviewing, and prioritizing weaknesses in systems, applications, and lab environments.</p>
           <div class="skill-meta"><span>Hands-on</span></div>
+        </article>
+
+        <article class="card skill-card core-focus" data-skill-category="testing cybersecurity">
+          <i class="skill-icon fa-solid fa-user-secret" aria-hidden="true"></i>
+          <span class="skill-category">Penetration Testing</span>
+          <h3>Penetration Testing</h3>
+          <p>Practicing ethical security testing, reconnaissance, scanning, exploitation concepts, and reporting.</p>
+          <div class="skill-meta"><span>Hands-on</span></div>
+        </article>
+
+        <article class="card skill-card core-focus" data-skill-category="mobile testing cybersecurity">
+          <i class="skill-icon fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>
+          <span class="skill-category">APK Analysis</span>
+          <h3>Static & Dynamic APK Analysis</h3>
+          <p>Reviewing APK structure, behavior, permissions, runtime activity, and security indicators.</p>
+          <div class="skill-meta"><span>Android Focus</span></div>
+        </article>
+
+        <article class="card skill-card core-focus" data-skill-category="networking testing cybersecurity">
+          <i class="skill-icon fa-solid fa-chart-line" aria-hidden="true"></i>
+          <span class="skill-category">Network Analysis</span>
+          <h3>Network Traffic Analysis</h3>
+          <p>Inspecting packets, protocols, logs, and network behavior to understand risks and anomalies.</p>
+          <div class="skill-meta"><span>Hands-on</span></div>
+        </article>
+
+        <article class="card skill-card" data-skill-category="testing cybersecurity">
+          <i class="skill-icon fa-solid fa-vial-circle-check" aria-hidden="true"></i>
+          <span class="skill-category">Testing</span>
+          <h3>Security Testing</h3>
+          <p>Testing applications, systems, and configurations for security weaknesses and improvement areas.</p>
+          <div class="skill-meta"><span>Practice</span></div>
+        </article>
+
+        <article class="card skill-card" data-skill-category="cybersecurity">
+          <i class="skill-icon fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+          <span class="skill-category">Threat Analysis</span>
+          <h3>Threat Analysis</h3>
+          <p>Studying threats, attack patterns, indicators, and likely impact on users, systems, and data.</p>
+          <div class="skill-meta"><span>Research</span></div>
+        </article>
+
+        <article class="card skill-card" data-skill-category="cybersecurity">
+          <i class="skill-icon fa-solid fa-clipboard-check" aria-hidden="true"></i>
+          <span class="skill-category">Risk</span>
+          <h3>Security Risk Assessment</h3>
+          <p>Assessing security risks, documenting severity, and recommending practical mitigation steps.</p>
+          <div class="skill-meta"><span>Assessment</span></div>
+        </article>
+
+        <article class="card skill-card" data-skill-category="professional">
+          <i class="skill-icon fa-solid fa-file-lines" aria-hidden="true"></i>
+          <span class="skill-category">Documentation</span>
+          <h3>Technical Documentation & Reporting</h3>
+          <p>Writing clear technical notes, lab reports, findings, summaries, and security documentation.</p>
+          <div class="skill-meta"><span>Professional</span></div>
+        </article>
+
+        <article class="card skill-card" data-skill-category="tools professional">
+          <i class="skill-icon fa-brands fa-github" aria-hidden="true"></i>
+          <span class="skill-category">Version Control</span>
+          <h3>Git & GitHub</h3>
+          <p>Managing project files, repositories, version history, and portfolio code through GitHub workflows.</p>
+          <div class="skill-meta"><span>Tools</span></div>
+        </article>
+
+        <article class="card skill-card" data-skill-category="tools cybersecurity">
+          <i class="skill-icon fa-solid fa-desktop" aria-hidden="true"></i>
+          <span class="skill-category">Operating Systems</span>
+          <h3>Linux & Windows</h3>
+          <p>Working across Linux and Windows environments for labs, tools, troubleshooting, and security practice.</p>
+          <div class="skill-meta"><span>Tools</span></div>
+        </article>
+
+        <article class="card skill-card" data-skill-category="tools cybersecurity networking">
+          <i class="skill-icon fa-solid fa-gears" aria-hidden="true"></i>
+          <span class="skill-category">System Security</span>
+          <h3>System Configuration & Firewall Configuration</h3>
+          <p>Configuring system settings, security controls, firewall rules, and basic host protection options.</p>
+          <div class="skill-meta"><span>Configuration</span></div>
+        </article>
+
+        <article class="card skill-card" data-skill-category="networking tools">
+          <i class="skill-icon fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
+          <span class="skill-category">Networking</span>
+          <h3>Networking Troubleshooting</h3>
+          <p>Diagnosing connectivity, IP, DNS, routing, packet flow, and common network configuration issues.</p>
+          <div class="skill-meta"><span>Troubleshooting</span></div>
+        </article>
+
+        <article class="card skill-card" data-skill-category="tools networking">
+          <i class="skill-icon fa-solid fa-diagram-project" aria-hidden="true"></i>
+          <span class="skill-category">Networking Tool</span>
+          <h3>Cisco Packet Tracer</h3>
+          <p>Designing and testing network topologies, routing concepts, and practical networking scenarios.</p>
+          <div class="skill-meta"><span>Networking</span></div>
+        </article>
+
+        <article class="card skill-card" data-skill-category="tools professional">
+          <i class="skill-icon fa-solid fa-file-excel" aria-hidden="true"></i>
+          <span class="skill-category">Productivity</span>
+          <h3>MS Word & Excel</h3>
+          <p>Preparing documentation, reports, tables, planning sheets, and organized technical records.</p>
+          <div class="skill-meta"><span>Professional</span></div>
+        </article>
+
+        <article class="card skill-card" data-skill-category="professional">
+          <i class="skill-icon fa-solid fa-people-group" aria-hidden="true"></i>
+          <span class="skill-category">Soft Skill</span>
+          <h3>Communication & Teamwork</h3>
+          <p>Communicating technical ideas clearly and collaborating effectively on academic and project work.</p>
+          <div class="skill-meta"><span>Professional</span></div>
         </article>
       </div>
 
       <div class="tech-strip" aria-label="Technology stack">
         <div class="tech-strip-track">
-          <span>Kotlin</span>
-          <span>Jetpack Compose</span>
-          <span>Android Studio</span>
-          <span>Python</span>
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
+          <span>Cybersecurity</span>
+          <span>Network Security</span>
+          <span>Mobile Application Security</span>
+          <span>Android Security</span>
+          <span>Android Malware Analysis</span>
+          <span>Vulnerability Assessment</span>
+          <span>Penetration Testing</span>
+          <span>APK Analysis</span>
+          <span>Traffic Analysis</span>
+          <span>Firewall Configuration</span>
+          <span>Networking Troubleshooting</span>
           <span>Git</span>
           <span>GitHub</span>
           <span>Linux</span>
-          <span>Nmap</span>
-          <span>Metasploit</span>
+          <span>Windows</span>
         </div>
       </div>
     </div>
@@ -324,34 +429,37 @@
       <h2><span>&lt;</span> Tools & Libraries <span>/&gt;</span></h2>
       <div class="cards tools-grid">
         <article class="card">
-          <h3>Cisco Packet Tracer</h3>
-          <p>Powerful network simulation tool used for designing and testing networking setups.</p>
+          <h3>MobSF</h3>
+          <p>Mobile Security Framework used for Android application security analysis and mobile app testing workflows.</p>
         </article>
         <article class="card">
           <h3>Wireshark</h3>
           <p>Network protocol analyzer used to capture and inspect data packets in real time.</p>
         </article>
         <article class="card">
-          <h3>Dev++</h3>
-          <p>Simple C/C++ integrated development environment (IDE) for writing and debugging code.</p>
+          <h3>KFSensor</h3>
+          <p>Honeypot and intrusion detection tool used for monitoring suspicious network activity and attack attempts.</p>
         </article>
         <article class="card">
-          <h3>VirtualBox</h3>
-          <p>Virtualization software for running multiple operating systems on a single machine.</p>
+          <h3>Nmap / Zenmap</h3>
+          <p>Network scanning tools used for host discovery, port scanning, service detection, and security assessment.</p>
         </article>
         <article class="card">
-          <h3>VMware</h3>
-          <p>Professional-grade virtualization platform for creating and managing virtual machines.</p>
+          <h3>Hydra</h3>
+          <p>Security testing tool used in controlled labs for password attack simulations and authentication testing.</p>
         </article>
         <article class="card">
-          <h3>IntelliJ IDEA Community</h3>
-          <p>Open-source IDE for Java and other programming languages with smart code assistance.</p>
+          <h3>Android Emulator / AVD</h3>
+          <p>Android virtual device environment used for testing apps, APK behavior, and mobile security scenarios.</p>
         </article>
-        <article class="card"><h3>Google APIs</h3><p>APIs for authentication, maps, cloud, and AI services.</p></article>
-        <article class="card"><h3>DownloadManager</h3><p>Android system service for managing downloads efficiently.</p></article>
-        <article class="card"><h3>Nmap</h3><p>Powerful network scanner for security testing & analysis.</p></article>
-        <article class="card"><h3>Android Studio</h3><p>Official IDE for Android development with Kotlin & Java.</p></article>
-        <article class="card"><h3>Visual Studio</h3><p>Popular IDE for .NET, C++, Python, and cross-platform apps.</p></article>
+        <article class="card">
+          <h3>Cisco Packet Tracer</h3>
+          <p>Network simulation tool used for designing, testing, and troubleshooting networking topologies.</p>
+        </article>
+        <article class="card">
+          <h3>Kali Linux</h3>
+          <p>Security-focused Linux distribution used for penetration testing labs, network testing, and security tools.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -493,7 +601,15 @@
 
       <div class="cards cert-grid">
         <!-- CYBERSECURITY -->
-        <article class="card cert-card" data-category="cybersecurity">
+        <article class="card cert-card" data-category="cybersecurity" data-verify="https://coursera.org/verify/JH7895GS69L7">
+          <h3>Enterprise System Management and Security</h3>
+          <p>University of Colorado System / Coursera | Completed: 28 Aug 2026 | ID: JH7895GS69L7</p>
+          <div class="cert-img-wrapper">
+            <img src="cert-enterprise-system-management-security.jpg" alt="Enterprise System Management and Security Certificate" loading="lazy">
+          </div>
+        </article>
+
+        <article class="card cert-card" data-category="cybersecurity" data-verify="https://coursera.org/verify/8GVIQY3XBRU8">
           <h3>Certified Ethical Hacker (CEH): Unit 1</h3>
           <p>Pearson / Coursera | Completed: 02 Jul 2026 | ID: 8GVIQY3XBRU8</p>
           <div class="cert-img-wrapper">
@@ -501,7 +617,7 @@
           </div>
         </article>
 
-        <article class="card cert-card" data-category="cybersecurity">
+        <article class="card cert-card" data-category="cybersecurity" data-verify="https://coursera.org/verify/OUUJHT0SIBLZ">
           <h3>Certified Ethical Hacker (CEH): Unit 2</h3>
           <p>Pearson / Coursera | Completed: 08 Jul 2026 | ID: OUUJHT0SIBLZ</p>
           <div class="cert-img-wrapper">
@@ -509,7 +625,7 @@
           </div>
         </article>
 
-        <article class="card cert-card" data-category="cybersecurity">
+        <article class="card cert-card" data-category="cybersecurity" data-verify="https://coursera.org/verify/Y75FG9LJZI9X">
           <h3>Certified Ethical Hacker (CEH) v12 Specialization</h3>
           <p>Packt / Coursera | Completed: 21 Jul 2026 | ID: Y75FG9LJZI9X</p>
           <div class="cert-img-wrapper">
@@ -517,7 +633,7 @@
           </div>
         </article>
 
-        <article class="card cert-card" data-category="cybersecurity">
+        <article class="card cert-card" data-category="cybersecurity" data-verify="https://coursera.org/verify/BSAWFIJIJU5DW">
           <h3>Introduction to Ethical Hacking and Recon Techniques</h3>
           <p>Packt / Coursera | Completed: 02 Jul 2026 | ID: BSAWFIJIJU5DW</p>
           <div class="cert-img-wrapper">
@@ -533,7 +649,7 @@
           </div>
         </article>
 
-        <article class="card cert-card" data-category="cybersecurity">
+        <article class="card cert-card" data-category="cybersecurity" data-verify="https://coursera.org/verify/11QKAONJ73UG">
           <h3>Foundations of Cybersecurity</h3>
           <p>Google / Coursera | Completed: 30 Jun 2026 | ID: 11QKAONJ73UG</p>
           <div class="cert-img-wrapper">
@@ -541,7 +657,7 @@
           </div>
         </article>
 
-        <article class="card cert-card" data-category="cybersecurity">
+        <article class="card cert-card" data-category="cybersecurity" data-verify="https://coursera.org/verify/2AYFOUM7VJER">
           <h3>Play It Safe: Manage Security Risks</h3>
           <p>Google / Coursera | Completed: 08 Jul 2026 | ID: 2AYFOUM7VJER</p>
           <div class="cert-img-wrapper">
@@ -549,7 +665,7 @@
           </div>
         </article>
 
-        <article class="card cert-card" data-category="cybersecurity">
+        <article class="card cert-card" data-category="cybersecurity" data-verify="https://coursera.org/verify/G42P9XKOW9JG">
           <h3>Connect and Protect: Networks and Network Security</h3>
           <p>Google / Coursera | Completed: 21 Jul 2026 | ID: G42P9XKOW9JG</p>
           <div class="cert-img-wrapper">
@@ -557,7 +673,7 @@
           </div>
         </article>
 
-        <article class="card cert-card" data-category="cybersecurity">
+        <article class="card cert-card" data-category="cybersecurity" data-verify="https://coursera.org/verify/FRKUHP2O5MB0">
           <h3>Introduction to Computers, Operating Systems and Security</h3>
           <p>Microsoft / Coursera | Completed: 04 Jul 2026 | ID: FRKUHP2O5MB0</p>
           <div class="cert-img-wrapper">
@@ -597,7 +713,7 @@
           </div>
         </article>
 
-        <article class="card cert-card" data-category="cybersecurity">
+        <article class="card cert-card" data-category="cybersecurity" data-verify="https://coursera.org/verify/QFBGZOBE9K3V">
           <h3>System Hacking, Malware Threats, and Network Attacks</h3>
           <p>Packt / Coursera | Completed: 03 Jul 2026 | ID: QFBGZOBE9K3V</p>
           <div class="cert-img-wrapper">
@@ -605,7 +721,7 @@
           </div>
         </article>
 
-        <article class="card cert-card" data-category="cybersecurity">
+        <article class="card cert-card" data-category="cybersecurity" data-verify="https://coursera.org/verify/A3N4V6V3XR02">
           <h3>Network Monitoring and Analysis</h3>
           <p>Google / Coursera | Completed: 26 Jul 2026 | ID: A3N4V6V3XR02</p>
           <div class="cert-img-wrapper">
@@ -613,7 +729,7 @@
           </div>
         </article>
 
-        <article class="card cert-card" data-category="cybersecurity">
+        <article class="card cert-card" data-category="cybersecurity" data-verify="https://coursera.org/verify/C7P97JAU8IY8">
           <h3>Google Network Security Specialization</h3>
           <p>Google / Coursera | Completed: 25 Jul 2026 | ID: C7P97JAU8IY8</p>
           <div class="cert-img-wrapper">
@@ -621,7 +737,7 @@
           </div>
         </article>
 
-        <article class="card cert-card" data-category="cybersecurity">
+        <article class="card cert-card" data-category="cybersecurity" data-verify="https://coursera.org/verify/LOVXO6U4ZKWY">
           <h3>Network Traffic and Logs Using IDS and SIEM Tools</h3>
           <p>Google / Coursera | Completed: 25 Jul 2026 | ID: LOVXO6U4ZKWY</p>
           <div class="cert-img-wrapper">
@@ -630,7 +746,15 @@
         </article>
 
         <!-- NETWORKING -->
-        <article class="card cert-card" data-category="networking">
+        <article class="card cert-card" data-category="networking" data-verify="https://coursera.org/verify/C8VRK8E33RVM">
+          <h3>Introduction to Networking and Cloud Computing</h3>
+          <p>Microsoft / Coursera | Completed: 19 Aug 2026 | ID: C8VRK8E33RVM</p>
+          <div class="cert-img-wrapper">
+            <img src="cert-microsoft-networking-cloud.jpg" alt="Introduction to Networking and Cloud Computing Certificate" loading="lazy">
+          </div>
+        </article>
+
+        <article class="card cert-card" data-category="networking" data-verify="https://coursera.org/verify/HD4AOTITV1C2">
           <h3>CCNA: Networking Basics, Switching, Addressing, and Routing</h3>
           <p>Logical Operations / Coursera | Completed: 03 Jul 2026 | ID: HD4AOTITV1C2</p>
           <div class="cert-img-wrapper">
@@ -646,7 +770,7 @@
           </div>
         </article>
 
-        <article class="card cert-card" data-category="networking">
+        <article class="card cert-card" data-category="networking" data-verify="https://coursera.org/verify/CW0L8X6ERR64">
           <h3>Network Architecture Fundamentals</h3>
           <p>Cisco / Coursera | Completed: 30 Jun 2026 | ID: CW0L8X6ERR64</p>
           <div class="cert-img-wrapper">
@@ -654,7 +778,7 @@
           </div>
         </article>
 
-        <article class="card cert-card" data-category="networking">
+        <article class="card cert-card" data-category="networking" data-verify="https://coursera.org/verify/6IVFQXSP0L5Y">
           <h3>Overview of Important Protocols</h3>
           <p>Cisco / Coursera | Completed: 08 Jul 2026 | ID: 6IVFQXSP0L5Y</p>
           <div class="cert-img-wrapper">
@@ -662,7 +786,7 @@
           </div>
         </article>
 
-        <article class="card cert-card" data-category="networking">
+        <article class="card cert-card" data-category="networking" data-verify="https://coursera.org/verify/D4JNHUPNQK8F">
           <h3>CCNA Expert — Network Automation, Cloud, and Emerging Technologies</h3>
           <p>Packt / Coursera | Completed: 08 Jul 2026 | ID: D4JNHUPNQK8F</p>
           <div class="cert-img-wrapper">
@@ -670,7 +794,7 @@
           </div>
         </article>
 
-        <article class="card cert-card" data-category="networking">
+        <article class="card cert-card" data-category="networking" data-verify="https://coursera.org/verify/WD2OKAN1IMO7">
           <h3>Network Fundamentals Specialization</h3>
           <p>Cisco / Coursera | Completed: 13 Jul 2026 | ID: WD2OKAN1IMO7</p>
           <div class="cert-img-wrapper">
@@ -679,7 +803,7 @@
         </article>
 
         <!-- IT & GEN TECH -->
-        <article class="card cert-card" data-category="it">
+        <article class="card cert-card" data-category="it" data-verify="https://coursera.org/verify/UF97CNFXNUIM">
           <h3>IoT for Everyone</h3>
           <p>HEC Pakistan / Coursera | Completed: 02 Jul 2026 | ID: UF97CNFXNUIM</p>
           <div class="cert-img-wrapper">
@@ -703,7 +827,7 @@
           </div>
         </article>
 
-        <article class="card cert-card" data-category="it">
+        <article class="card cert-card" data-category="it" data-verify="https://coursera.org/verify/FQ85TEVFN4LD">
           <h3>Foundations: Data, Data, Everywhere</h3>
           <p>Google / Coursera | Completed: 03 Jul 2026 | ID: FQ85TEVFN4LD</p>
           <div class="cert-img-wrapper">
@@ -711,7 +835,7 @@
           </div>
         </article>
 
-        <article class="card cert-card" data-category="it">
+        <article class="card cert-card" data-category="it" data-verify="https://coursera.org/verify/57QA32YRGNYY">
           <h3>Foundations of Business Analysis</h3>
           <p>SAP / Coursera | Completed: 21 Jul 2026 | ID: 57QA32YRGNYY</p>
           <div class="cert-img-wrapper">
@@ -719,7 +843,7 @@
           </div>
         </article>
 
-        <article class="card cert-card" data-category="it">
+        <article class="card cert-card" data-category="it" data-verify="https://coursera.org/verify/2UDIPX49PX2B">
           <h3>Business Process Modeling and Analysis</h3>
           <p>SAP / Coursera | Completed: 10 Aug 2026 | ID: 2UDIPX49PX2B</p>
           <div class="cert-img-wrapper">
@@ -727,7 +851,7 @@
           </div>
         </article>
 
-        <article class="card cert-card" data-category="it">
+        <article class="card cert-card" data-category="it" data-verify="https://coursera.org/verify/L2VFI2POHYL3">
           <h3>SAP Business Analyst Professional Certificate</h3>
           <p>SAP / Coursera | Completed: 10 Aug 2026 | ID: L2VFI2POHYL3</p>
           <div class="cert-img-wrapper">
@@ -735,7 +859,7 @@
           </div>
         </article>
 
-        <article class="card cert-card" data-category="it">
+        <article class="card cert-card" data-category="it" data-verify="https://coursera.org/verify/16J38ZL9XWBM">
           <h3>Strategic Analysis and Solution Design</h3>
           <p>SAP / Coursera | Completed: 10 Aug 2026 | ID: 16J38ZL9XWBM</p>
           <div class="cert-img-wrapper">
@@ -743,7 +867,7 @@
           </div>
         </article>
 
-        <article class="card cert-card" data-category="it">
+        <article class="card cert-card" data-category="it" data-verify="https://coursera.org/verify/HW2PQVU8YWJ7">
           <h3>Introduction to Computers</h3>
           <p>Microsoft / Coursera | Completed: 03 Jul 2026 | ID: HW2PQVU8YWJ7</p>
           <div class="cert-img-wrapper">
@@ -751,7 +875,7 @@
           </div>
         </article>
 
-        <article class="card cert-card" data-category="it">
+        <article class="card cert-card" data-category="it" data-verify="https://coursera.org/verify/AUIPYNO9NOSJ">
           <h3>Work Smarter with Microsoft Word</h3>
           <p>Microsoft / Coursera | Completed: 03 Jul 2026 | ID: AUIPYNO9NOSJ</p>
           <div class="cert-img-wrapper">
@@ -777,9 +901,7 @@
       </div>
     </div>
   </section>
-
-  <!-- Certificate Preview Modal -->
-  <div id="certModal" class="cert-modal">
+  <div id="certModal" class="cert-modal" role="dialog" aria-modal="true" aria-label="Certificate preview">
     <span id="closeCert" class="close-btn" role="button" tabindex="0" aria-label="Close certificate preview">&times;</span>
     <button class="modal-nav prev-btn" id="prevCert" aria-label="Previous Certificate"><i class="fa-solid fa-chevron-left"></i></button>
     <div class="modal-img-container">
@@ -790,7 +912,7 @@
   </div>
 
   <!-- Project Details Modal -->
-  <div id="projectModal" class="cert-modal">
+  <div id="projectModal" class="cert-modal" role="dialog" aria-modal="true" aria-labelledby="modalProjectTitle">
     <span id="closeProjectModal" class="close-btn" role="button" tabindex="0" aria-label="Close project details">&times;</span>
     <div class="modal-content project-modal-content">
       <h2 id="modalProjectTitle">Project Title</h2>
@@ -806,18 +928,21 @@
       <h2><span>&lt;</span> Career Goals <span>/&gt;</span></h2>
       <div class="goal-roadmap">
         <article class="card goal-card primary-goal">
+          <i class="goal-icon fa-solid fa-bullseye" aria-hidden="true"></i>
           <span class="goal-label">Primary Goal</span>
           <h3>Mobile Application Security Engineer / Android Security Researcher</h3>
           <p>Build a professional career specializing in <strong>Android and mobile application security</strong>, with a strong focus on identifying vulnerabilities, securing mobile applications, analyzing malicious applications, and researching emerging mobile threats.</p>
         </article>
 
         <article class="card goal-card">
+          <i class="goal-icon fa-solid fa-route" aria-hidden="true"></i>
           <span class="goal-label">Career Path</span>
           <h3>Malware Analyst → Mobile Security Researcher → Senior Application Security Engineer / Security Researcher</h3>
           <p>Develop from malware analysis and mobile security research into advanced application security and cybersecurity research roles.</p>
         </article>
 
         <article class="card goal-card long-vision">
+          <i class="goal-icon fa-solid fa-mountain-sun" aria-hidden="true"></i>
           <span class="goal-label">Long-Term Vision</span>
           <h3>Cybersecurity Engineer specializing in Android/Mobile Application Security and Malware Analysis</h3>
           <p>My long-term objective is to combine <strong>mobile security, malware research, penetration testing, networking, Python automation, and AI</strong> to research modern cyber threats and develop practical security solutions for Android and mobile applications.</p>
@@ -865,9 +990,9 @@
       </div>
       <div>
         <form id="contactForm" class="contact-form">
-          <div class="field"><label for="name">Your Name</label><input id="name" name="name" type="text" placeholder="e.g., Rana Arif" required/></div>
-          <div class="field"><label for="email">Your Email</label><input id="email" name="email" type="email" placeholder="e.g., arif@example.com" required/></div>
-          <div class="field"><label for="message">Your Message</label><textarea id="message" name="message" placeholder="Write your message..." rows="5" required></textarea></div>
+          <div class="field"><i class="fa-regular fa-user" aria-hidden="true"></i><input id="name" name="name" type="text" placeholder=" " required/><label for="name">Your Name</label></div>
+          <div class="field"><i class="fa-regular fa-envelope" aria-hidden="true"></i><input id="email" name="email" type="email" placeholder=" " required/><label for="email">Your Email</label></div>
+          <div class="field"><i class="fa-regular fa-message" aria-hidden="true"></i><textarea id="message" name="message" placeholder=" " rows="5" required></textarea><label for="message">Your Message</label></div>
           <button type="submit" class="btn primary wide"><i class="fa-regular fa-paper-plane"></i> Send Message</button>
           <p class="form-hint">Feel free to reach out. I will get back to you as soon as possible.</p>
         </form>

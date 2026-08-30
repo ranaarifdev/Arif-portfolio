@@ -13,6 +13,7 @@ window.ADDED_CERTS = [
   "cert-cyber-threat-management.jpeg",
   "cert-cybersecurity1.jpg",
   "cert-cybersecurity2.jpg",
+  "cert-enterprise-system-management-security.jpg",
   "cert-ethical-hacking.jpg",
   "cert-foundation-cybersecurity.jpeg",
   "cert-google-data-foundation.jpg",
@@ -23,6 +24,7 @@ window.ADDED_CERTS = [
   "cert-manage-security-risks.png",
   "cert-mentalhealth.jpg",
   "cert-microsoft-computer.jpg",
+  "cert-microsoft-networking-cloud.jpg",
   "cert-microsoft-word.jpg",
   "cert-network-architecture.jpeg",
   "cert-network-fundamentals-specialization.png",
@@ -31,7 +33,6 @@ window.ADDED_CERTS = [
   "cert-network-traffic-logs-ids-siem.jpg",
   "cert-network.jpg",
   "cert-penetration.jpg",
-  "cert-penetrationtesting.jpg",
   "cert-system-analysis.jpg",
   "cert-udemy-ai-professionals.jpg",
   "cert-virtualmachines.jpg",
@@ -40,10 +41,15 @@ window.ADDED_CERTS = [
 ];
 
 window.ADDED_CERT_DETAILS = {
-  "cert-penetrationtesting.jpg": {
-    title: "Introduction to Virtual Machines",
-    description: "Security Blue Team | Completed: 06 Oct 2025 | ID: 632841127",
-    category: "it"
+  "cert-enterprise-system-management-security.jpg": {
+    title: "Enterprise System Management and Security",
+    description: "University of Colorado System / Coursera | Completed: 28 Aug 2026 | ID: JH7895GS69L7",
+    category: "cybersecurity"
+  },
+  "cert-microsoft-networking-cloud.jpg": {
+    title: "Introduction to Networking and Cloud Computing",
+    description: "Microsoft / Coursera | Completed: 19 Aug 2026 | ID: C8VRK8E33RVM",
+    category: "networking"
   }
 };
 
