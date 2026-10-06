@@ -36,6 +36,8 @@ window.ADDED_CERTS = [
   "cert-system-analysis.jpg",
   "cert-udemy-ai-professionals.jpg",
   "cert-virtualmachines.jpg",
+  "cert-how-to-write-research-paper.jpg",
+  "cert-windows-server-management-security.jpg",
   "sap_business_analyst-1.png",
   "strategic_analysis-1.png"
 ];
@@ -50,6 +52,16 @@ window.ADDED_CERT_DETAILS = {
     title: "Introduction to Networking and Cloud Computing",
     description: "Microsoft / Coursera | Completed: 19 Aug 2026 | ID: C8VRK8E33RVM",
     category: "networking"
+  },
+  "cert-how-to-write-research-paper.jpg": {
+    title: "How to Write a Research Paper",
+    description: "HEC Pakistan / Coursera | Completed: 17 Sep 2026 | ID: 8X8HMPR11LOK",
+    category: "it"
+  },
+  "cert-windows-server-management-security.jpg": {
+    title: "Windows Server Management and Security",
+    description: "University of Colorado System / Coursera | Completed: 06 Sep 2026 | ID: A8JKB3LK8RZ2",
+    category: "cybersecurity"
   }
 };
 
