@@ -12,7 +12,7 @@
 
 ## ⚡ Highlights
 
-- 🛡️ **39 Verified Certificates**: Across Cybersecurity, Network Security, CEH, CCNA, Microsoft, Google, and Coursera.
+- 🛡️ **41 Verified Certificates**: Across Cybersecurity, Network Security, CEH, CCNA, Microsoft, Google, and Coursera.
 - 📱 **Mobile & Android Security Focus**: OWASP MASVS, reverse engineering with APKTool & Jadx, MobSF static/dynamic analysis.
 - 💻 **10 Featured Security & Dev Projects**: Student management systems, network scanners, honeypot intrusion detection, and malware analysis labs.
 - 🎨 **High-Tech Aesthetic**: Dark & Light mode system, smooth micro-animations, glassmorphic UI, and responsive layout across desktop, tablet, and mobile.
@@ -38,7 +38,7 @@ Arif-portfolio/
 ├── index.html               # Main semantic web application
 ├── style.css                # Design system, themes, and media queries
 ├── script.js                # App logic, typing effect, modals, filters
-├── cert-list.js             # Registry of all 39 certificate assets
+├── cert-list.js             # Registry of all 41 certificate assets
 ├── rana.jpg                 # Profile picture & social preview
 ├── cert-*.jpg / cert-*.png  # Verified certificate scans
 ├── tools/                   # Python validation scripts

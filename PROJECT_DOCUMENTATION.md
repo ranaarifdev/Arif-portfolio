@@ -92,12 +92,12 @@ It provides:
 
 `cert-list.js` exposes two globals:
 
-- `window.ADDED_CERTS`: 37 root-relative certificate image filenames.
-- `window.ADDED_CERT_DETAILS`: supplemental title, description, and category data for two certificate filenames.
+- `window.ADDED_CERTS`: 39 root-relative certificate image filenames.
+- `window.ADDED_CERT_DETAILS`: supplemental title, description, and category data for four certificate filenames.
 
-At page load, `script.js` compares the registry with the images already rendered in the certification section. An image is added only when it is not already rendered. At present, all 37 registry images are already represented by static certificate cards, so no duplicate cards are added.
+At page load, `script.js` compares the registry with the images already rendered in the certification section. An image is added only when it is not already rendered. At present, all 39 registry images are already represented by static certificate cards, so no duplicate cards are added.
 
-Note: `tools/validate_all.py` reports **39 quoted image references** in `cert-list.js`. This is expected because its regular expression counts the 37 array entries plus the two image-file keys in `window.ADDED_CERT_DETAILS`; the actual registry contains 37 entries.
+Note: `tools/validate_all.py` reports **41 quoted image references** in `cert-list.js`. This is expected because its regular expression counts the 39 array entries plus the two image-file keys in `window.ADDED_CERT_DETAILS`; the actual registry contains 39 entries.
 
 ## 5. Page content
 
@@ -190,20 +190,20 @@ Project cards use `data-title`, `data-desc`, `data-skills`, and optional `data-g
 
 | Item | Count |
 |---|---:|
-| Static certificate cards in `index.html` | 37 |
-| Entries in `window.ADDED_CERTS` | 37 |
-| Certificate image files | 37 |
+| Static certificate cards in `index.html` | 39 |
+| Entries in `window.ADDED_CERTS` | 39 |
+| Certificate image files | 39 |
 | Profile image files | 1 |
-| Root-level image files | 38 |
+| Root-level image files | 40 |
 | Duplicate images detected by SHA-256 | 0 |
 
 ### Certificate categories
 
 The filter tabs are All, Cybersecurity, Networking, and IT & Gen Tech.
 
-- Cybersecurity: 18 cards.
+- Cybersecurity: 19 cards.
 - Networking: 7 cards.
-- IT & Gen Tech: 12 cards.
+- IT & Gen Tech: 13 cards.
 
 ### Certificate catalog
 
@@ -227,6 +227,7 @@ The filter tabs are All, Cybersecurity, Networking, and IT & Gen Tech.
 16. Network Monitoring and Analysis
 17. Google Network Security Specialization
 18. Network Traffic and Logs Using IDS and SIEM Tools
+19. Windows Server Management and Security
 
 **Networking**
 
@@ -252,6 +253,7 @@ The filter tabs are All, Cybersecurity, Networking, and IT & Gen Tech.
 10. Work Smarter with Microsoft Word
 11. Introduction to Virtual Machines
 12. The Complete Artificial Intelligence (AI) for Professionals
+13. How to Write a Research Paper
 
 ### Certificate behavior
 
@@ -287,6 +289,7 @@ cert-ethical-hacking.jpg
 cert-foundation-cybersecurity.jpeg
 cert-google-data-foundation.jpg
 cert-google-network-security-specialization.jpg
+cert-how-to-write-research-paper.jpg
 cert-important-network-protocols.png
 cert-iot1.jpg
 cert-iot2.jpg
@@ -305,6 +308,7 @@ cert-penetration.jpg
 cert-system-analysis.jpg
 cert-udemy-ai-professionals.jpg
 cert-virtualmachines.jpg
+cert-windows-server-management-security.jpg
 sap_business_analyst-1.png
 strategic_analysis-1.png
 ```
