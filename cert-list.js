@@ -16,6 +16,7 @@ window.ADDED_CERTS = [
   "cert-enterprise-system-management-security.jpg",
   "cert-ethical-hacking.jpg",
   "cert-foundation-cybersecurity.jpeg",
+  "cert-hack-me-if-you-can.jpeg",
   "cert-google-data-foundation.jpg",
   "cert-google-network-security-specialization.jpg",
   "cert-important-network-protocols.png",
@@ -43,6 +44,11 @@ window.ADDED_CERTS = [
 ];
 
 window.ADDED_CERT_DETAILS = {
+  "cert-hack-me-if-you-can.jpeg": {
+    title: "Hack me if you can",
+    description: "Cybersecurity certificate",
+    category: "cybersecurity"
+  },
   "cert-enterprise-system-management-security.jpg": {
     title: "Enterprise System Management and Security",
     description: "University of Colorado System / Coursera | Completed: 28 Aug 2026 | ID: JH7895GS69L7",
